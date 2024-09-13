@@ -22,11 +22,11 @@
         android:layout_height="300dp"
         android:src="@drawable/logo3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="16dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/iv_icon">
@@ -39,7 +39,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pass"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_marginTop="16dp"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
@@ -55,7 +55,7 @@
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_below="@+id/period"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="95dp"
         android:layout_centerHorizontal="true"
         style="@style/Widget.MaterialComponents.Button"
         android:backgroundTint="#504D4D"

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.syj2024.project.R
+import com.syj2024.project.SignUpActivity2
 import com.syj2024.project.databinding.ActivitySignupBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -19,7 +20,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
         binding.btnSign.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,SignUpActivity2::class.java))
 
         }
 
