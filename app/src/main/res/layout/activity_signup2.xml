@@ -29,12 +29,19 @@
             android:textSize="13sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <LinearLayout
+        android:id="@+id/layout_linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/input_team">
+
     <TextView
         android:id="@+id/tv_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="화이트"
-        android:layout_below="@id/input_team"
         android:layout_marginLeft="52dp"
         android:layout_marginTop="50dp"/>
 
@@ -42,28 +49,198 @@
         android:id="@+id/rb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/input_team"
-        android:layout_toRightOf="@+id/tv_white"
-        android:layout_marginTop="38dp"
-        android:layout_marginLeft="45dp"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="8dp"/>
 
-    <TextView
-        android:id="@+id/tv_blue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="블루"
-        android:layout_below="@id/tv_white"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="30dp"/>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="belt"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="8dp"
+            android:backgroundTint="#DFE3EB"/>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:hint="그랄"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"/>
 
-    <RadioButton
-        android:id="@+id/rb2"
-        android:layout_width="wrap_content"
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_linear2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rb1"
-        android:layout_toRightOf="@+id/tv_blue"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="58dp"/>
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_linear1">
+
+        <TextView
+            android:id="@+id/tv_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="블루"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="belt"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:backgroundTint="#436BBC"/>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:hint="그랄"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_linear3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_linear2">
+
+        <TextView
+            android:id="@+id/tv_purple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="퍼플"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="belt"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:backgroundTint="#7B43BC"/>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:hint="그랄"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_linear4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_linear3">
+
+        <TextView
+            android:id="@+id/tv_brown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="브라운"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="7dp"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="belt"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:backgroundTint="#6A4D1C"/>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:hint="그랄"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_linear5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_linear4">
+
+        <TextView
+            android:id="@+id/tv_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="블랙"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rb5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="belt"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="#0F0E0E"/>
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:hint="그랄"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/layout_linear5"
+        android:layout_marginTop="95dp"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.MaterialComponents.Button"
+        android:backgroundTint="#504D4D"
+        android:text="회원가입"/>
+
 
 
 
