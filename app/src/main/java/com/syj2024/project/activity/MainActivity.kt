@@ -7,6 +7,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
@@ -15,6 +17,7 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
 import com.prolificinteractive.materialcalendarview.spans.DotSpan
 import com.syj2024.project.R
 import com.syj2024.project.databinding.ActivityMainBinding
+import com.syj2024.project.fragment.LogFragment
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -52,6 +55,15 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+        val fab: FloatingActionButton = findViewById(R.id.fab)
+        fab.setOnClickListener {
+            // 새로운 Fragment로 전환
+            val newFragment = LogFragment()
+            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+
+        }
+
 
     }// onCreate
 } //MainActivity //
