@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/white"
+    android:background="@color/white">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/ic_action_back"
+        android:background="#DBD7D7" />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="350dp"
+        android:layout_height="180dp"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_box"
+        android:src="@drawable/ic_stat_image"
+        android:padding="16dp"
+        android:layout_below="@id/toolbar"/>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:padding="16dp"
+        android:drawablePadding="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@+id/iv"
+        android:background="@drawable/bg_box"
+        android:hint="내용을 입력하세요."/>
+
+
+    <Button
+        android:id="@+id/log_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수정"
+        android:backgroundTint="#AB5858"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_below="@+id/tv"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="130dp"/>
+
+    <Button
+        android:id="@+id/log_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#AB5858"
+        android:text="등록"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_below="@+id/tv"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="27dp"/>
+
+
+
+</RelativeLayout>
