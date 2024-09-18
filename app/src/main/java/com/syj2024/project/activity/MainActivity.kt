@@ -1,6 +1,7 @@
 package com.syj2024.project.activity
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
@@ -52,6 +53,9 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+        binding.fab.setOnClickListener {
+            startActivity(Intent(this, LogActivity::class.java))
+        }
 
     }// onCreate
 } //MainActivity //
