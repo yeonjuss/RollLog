@@ -11,18 +11,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="@drawable/ic_action_back"
-        android:background="#DBD7D7" />
+        android:background="#A46363" />
+
+    <TextView
+        android:id="@+id/tv_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YYYY-MM-DD"
+        android:layout_below="@+id/toolbar"
+        android:textStyle="bold"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="80dp"/>
+
+    <HorizontalScrollView
+        android:layout_marginTop="16dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    </HorizontalScrollView>
+
+
 
     <ImageView
         android:id="@+id/iv"
         android:layout_width="350dp"
         android:layout_height="180dp"
-        android:scaleType="fitCenter"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="130dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/bg_box"
-        android:src="@drawable/ic_stat_image"
         android:padding="16dp"
         android:layout_below="@id/toolbar"/>
 
@@ -60,6 +82,20 @@
         android:layout_below="@+id/tv"
         android:layout_alignParentRight="true"
         android:layout_marginRight="27dp"/>
+
+    <Button
+        android:id="@+id/log_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사진 추가"
+        android:backgroundTint="#AB5858"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_below="@+id/tv"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="230dp"/>
+
+
+
 
 
 

@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#DBD7D7"
+        android:background="#AB5858"
         app:navigationIcon="@drawable/ic_action_back"/>
 
     <ImageView
@@ -28,6 +28,8 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black"
         android:layout_below="@+id/iv_icon">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -42,6 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black"
         android:layout_below="@+id/input_name">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -56,6 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black"
         android:layout_below="@+id/input_email">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

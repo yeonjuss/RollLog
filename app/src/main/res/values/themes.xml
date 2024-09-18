@@ -7,6 +7,7 @@
 
     <style name="CalendarWidgetHeader">
         <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">#382626</item>
     </style>
 
@@ -15,7 +16,6 @@
         <item name="colorPrimary">@android:color/holo_blue_light</item>
         <item name="android:textStyle">bold</item>
     </style>
-
 
 
 

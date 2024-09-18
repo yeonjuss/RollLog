@@ -12,7 +12,7 @@
         android:id="@+id/login2_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#DBD7D7"
+        android:background="#AB5858"
         app:navigationIcon="@drawable/ic_action_back"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -21,6 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="120dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black"
         android:layout_below="@+id/login2_toolbar">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -52,10 +54,10 @@
         android:layout_marginTop="50dp"
         android:layout_marginLeft="8dp"/>
 
-        <Button
+        <ImageView
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:text="belt"
+            android:src="@drawable/white"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="8dp"
             android:backgroundTint="#DFE3EB"/>
@@ -91,9 +93,10 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="20dp"/>
 
-        <Button
+        <ImageView
             android:layout_width="150dp"
             android:layout_height="40dp"
+            android:src="@drawable/blue"
             android:text="belt"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
@@ -101,7 +104,6 @@
         <EditText
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:hint="그랄"
             android:textSize="12sp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="8dp"/>
@@ -130,17 +132,16 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="20dp"/>
 
-        <Button
+        <ImageView
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:text="belt"
+            android:src="@drawable/purple"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:backgroundTint="#7B43BC"/>
         <EditText
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:hint="그랄"
             android:textSize="12sp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="8dp"/>
@@ -169,17 +170,16 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="7dp"/>
 
-        <Button
+        <ImageView
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:text="belt"
+            android:src="@drawable/brown"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:backgroundTint="#6A4D1C"/>
         <EditText
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:hint="그랄"
             android:textSize="12sp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="8dp"/>
@@ -208,17 +208,16 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="20dp"/>
 
-        <Button
+        <ImageView
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:text="belt"
+            android:src="@drawable/black"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:backgroundTint="#0F0E0E"/>
         <EditText
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:hint="그랄"
             android:textSize="12sp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="8dp"/>

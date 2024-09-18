@@ -14,8 +14,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.btnLogin.setOnClickListener {
+        binding.tvSignup.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
+
+        }
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
 
         }
 
