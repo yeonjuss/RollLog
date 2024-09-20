@@ -87,11 +87,11 @@ class CalenderFragment : Fragment() {
             title
         }
 
-        // 캘린더 뷰 내부의 TitleChanger를 통해 헤더 텍스트에 접근
-        val titleContainer = calendarView.getChildAt(0) as ViewGroup
-
-         // 헤더 배경 색상 설정
-        titleContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.select))
+//        // 캘린더 뷰 내부의 TitleChanger를 통해 헤더 텍스트에 접근
+//        val titleContainer = calendarView.getChildAt(0) as ViewGroup
+//
+//         // 헤더 배경 색상 설정
+//        titleContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.select))
 
 
     } // onCreate
