@@ -6,9 +6,10 @@
     </style>
 
     <style name="CalendarWidgetHeader">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#382626</item>
+        <item name="background">@color/black</item>
     </style>
 
     <style name="CalenderViewCustom" parent="Theme.AppCompat">

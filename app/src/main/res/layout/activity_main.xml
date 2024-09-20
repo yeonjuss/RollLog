@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="@drawable/ic_action_menu"
-        android:background="#AB5858" />
+        android:background="#FFFFFF" />
 
 
     <FrameLayout
