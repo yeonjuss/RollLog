@@ -12,6 +12,11 @@ class LogActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
+
+        val selectedDate = intent.getStringExtra("selectedDate")
+        binding.selectedDateTv.text = "$selectedDate"
+
     }
     
 }
