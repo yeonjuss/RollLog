@@ -20,3 +20,4 @@ class LogActivity : AppCompatActivity() {
     }
     
 }
+
