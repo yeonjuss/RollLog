@@ -27,12 +27,12 @@ class SiteListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemList.add(Item(R.drawable.street, "11"))
-        itemList.add(Item(R.drawable.jagger, "11"))
-        itemList.add(Item(R.drawable.jagger, "11"))
-        itemList.add(Item(R.drawable.street, "11"))
-        itemList.add(Item(R.drawable.street, "33"))
-        itemList.add(Item(R.drawable.jagger, "22"))
+        itemList.add(Item("스트릿 주짓수",R.drawable.ic_action_arrow ))
+        itemList.add(Item("예거 주짓수",R.drawable.ic_action_arrow ))
+        itemList.add(Item("SGAA 주짓수",R.drawable.ic_action_arrow ))
+        itemList.add(Item("주짓수코리아 ",R.drawable.ic_action_arrow ))
+        itemList.add(Item("스트릿 주짓수",R.drawable.ic_action_arrow ))
+
 
         recyclerView.adapter = SiteListAdapter(requireContext(), itemList)
 

@@ -7,6 +7,7 @@ import com.syj2024.project.databinding.ActivityMainBinding
 import com.syj2024.project.fragment.CalenderFragment
 import com.syj2024.project.fragment.SiteListFragment
 import com.syj2024.project.fragment.NearbyGymFragment
+import com.syj2024.project.fragment.PlaceMapFragment
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -29,6 +30,9 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.bnv_search -> supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, NearbyGymFragment()).commit()
+
+                R.id.bnv_map -> supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, PlaceMapFragment()).commit()
 
             }
             true
