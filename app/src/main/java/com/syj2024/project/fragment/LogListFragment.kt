@@ -5,19 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.syj2024.project.R
-import com.syj2024.project.databinding.FragmentNearbyGymBinding
+import com.syj2024.project.databinding.FragmentLogListBinding
 
-class NearbyGymFragment : Fragment() {
+
+class LogListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentNearbyGymBinding.inflate(inflater,container,false)
+        binding= FragmentLogListBinding.inflate(inflater,container,false)
         return binding.root
     }
 
-    lateinit var binding: FragmentNearbyGymBinding
+    lateinit var binding: FragmentLogListBinding
+
+
+
+
 
 }

@@ -11,15 +11,14 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.syj2024.project.R
-import com.syj2024.project.databinding.RecyclerItemListFragmentBinding
 import com.syj2024.project.fragment.Item
 
 
 class SiteListAdapter constructor(val context:Context, val siteList: List<Item>) : Adapter<SiteListAdapter.VH>() {
 
     inner class VH constructor(itemView: View) : ViewHolder(itemView) {
-        val iv_site: ImageView by lazy { itemView.findViewById(R.id.iv_site) }
         val tv_address: TextView by lazy { itemView.findViewById(R.id.tv_address) }
+        val iv_site: ImageView by lazy { itemView.findViewById(R.id.iv_site) }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -34,8 +33,10 @@ class SiteListAdapter constructor(val context:Context, val siteList: List<Item>)
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val site = siteList.get(position)
+
         holder.tv_address.text=site.address
         Glide.with(context).load(site.imageResId).into(holder.iv_site)
+
     }
 }
 

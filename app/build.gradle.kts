@@ -50,8 +50,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.prolificinteractive:material-calendarview:1.4.3")
-
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+    
 
     implementation("com.naver.maps:map-sdk:3.19.1") // 네이버 지도 SDK
 

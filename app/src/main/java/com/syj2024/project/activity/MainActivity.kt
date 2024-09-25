@@ -6,7 +6,7 @@ import com.syj2024.project.R
 import com.syj2024.project.databinding.ActivityMainBinding
 import com.syj2024.project.fragment.CalenderFragment
 import com.syj2024.project.fragment.SiteListFragment
-import com.syj2024.project.fragment.NearbyGymFragment
+import com.syj2024.project.fragment.LogListFragment
 import com.syj2024.project.fragment.PlaceMapFragment
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.fragment_container, SiteListFragment()).commit()
 
                 R.id.bnv_search -> supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, NearbyGymFragment()).commit()
+                    .replace(R.id.fragment_container, LogListFragment()).commit()
 
                 R.id.bnv_map -> supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, PlaceMapFragment()).commit()
