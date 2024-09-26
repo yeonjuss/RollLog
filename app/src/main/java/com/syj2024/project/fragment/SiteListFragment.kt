@@ -24,6 +24,10 @@ class SiteListFragment : Fragment() {
             binding= FragmentSiteListBinding.inflate(inflater,container,false)
             return binding.root
     }
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -31,7 +35,10 @@ class SiteListFragment : Fragment() {
         itemList.add(Item("예거 주짓수",R.drawable.ic_action_arrow ))
         itemList.add(Item("SGAA 주짓수",R.drawable.ic_action_arrow ))
         itemList.add(Item("주짓수코리아 ",R.drawable.ic_action_arrow ))
-        itemList.add(Item("스트릿 주짓수",R.drawable.ic_action_arrow ))
+        itemList.add(Item("퀸즈 컴뱃",R.drawable.ic_action_arrow ))
+        itemList.add(Item("퀸즈 컴뱃",R.drawable.ic_action_arrow ))
+        itemList.add(Item("퀸즈 컴뱃",R.drawable.ic_action_arrow ))
+        itemList.add(Item("퀸즈 컴뱃",R.drawable.ic_action_arrow ))
 
 
         recyclerView.adapter = SiteListAdapter(requireContext(), itemList)

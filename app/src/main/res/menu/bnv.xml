@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/bnv_rc" android:title="기록" android:icon="@drawable/ic_action_rc"/>
-    <item android:id="@+id/bnv_search" android:title="기록목록" android:icon="@drawable/ic_action_search"/>
+    <item android:id="@+id/bnv_log" android:title="기록" android:icon="@drawable/ic_stat_edit"/>
+    <item android:id="@+id/bnv_list" android:title="기록 목록" android:icon="@drawable/ic_action_rc"/>
     <item android:id="@+id/bnv_sd" android:title="대회일정" android:icon="@drawable/ic_action_sd"/>
     <item android:id="@+id/bnv_map" android:title="지도" android:icon="@drawable/ic_action_map"/>
 

@@ -39,4 +39,6 @@ class PlaceMapFragment : Fragment() {
 
     }
 
+
+
 }

@@ -3,22 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.SiteListFragment">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:src="@drawable/compe2"/>
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_box2"
+        android:textAlignment="center"
+        android:paddingTop="60dp"
+        android:textStyle="bold"
+        android:text="주짓수 대회일정을 확인해 보세요!"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="16dp"
+        android:layout_below="@+id/tv"
+        android:paddingLeft="16dp"
+        android:background="#AB5858"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="COMPETITION"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/iv"
-        android:layout_marginTop="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"/>
+        android:layout_below="@+id/tv2"
+        android:layout_marginTop="9dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </RelativeLayout>

@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.syj2024.project.R
 import com.syj2024.project.databinding.ActivityMainBinding
 import com.syj2024.project.fragment.CalenderFragment
-import com.syj2024.project.fragment.SiteListFragment
 import com.syj2024.project.fragment.LogListFragment
+import com.syj2024.project.fragment.SiteListFragment
 import com.syj2024.project.fragment.PlaceMapFragment
 
 class MainActivity : AppCompatActivity() {
@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
         binding.bnv.setOnItemSelectedListener { menuItem ->
 
             when (menuItem.itemId) {
-                R.id.bnv_rc -> supportFragmentManager.beginTransaction()
+                R.id.bnv_log -> supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, CalenderFragment()).commit()
 
                 R.id.bnv_sd -> supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, SiteListFragment()).commit()
 
-                R.id.bnv_search -> supportFragmentManager.beginTransaction()
+                R.id.bnv_list -> supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, LogListFragment()).commit()
 
                 R.id.bnv_map -> supportFragmentManager.beginTransaction()
