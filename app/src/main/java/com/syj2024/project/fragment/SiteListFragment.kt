@@ -13,7 +13,6 @@ import com.syj2024.project.databinding.FragmentSiteListBinding
 
 class SiteListFragment : Fragment() {
 
-    val recyclerView: RecyclerView by lazy { requireView().findViewById(R.id.recycler_view) }
     var itemList: MutableList<Item> = mutableListOf()
     lateinit var binding:FragmentSiteListBinding
 
@@ -31,21 +30,26 @@ class SiteListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemList.add(Item("스트릿 주짓수",R.drawable.ic_action_arrow ))
-        itemList.add(Item("예거 주짓수",R.drawable.ic_action_arrow ))
+
+        itemList.add(Item("스트릿 주짓수",R.drawable.ic_action_arrow  ))
+        itemList.add(Item("예거스컵 주짓수",R.drawable.ic_action_arrow ))
         itemList.add(Item("SGAA 주짓수",R.drawable.ic_action_arrow ))
         itemList.add(Item("주짓수코리아 ",R.drawable.ic_action_arrow ))
         itemList.add(Item("퀸즈 컴뱃",R.drawable.ic_action_arrow ))
-        itemList.add(Item("퀸즈 컴뱃",R.drawable.ic_action_arrow ))
-        itemList.add(Item("퀸즈 컴뱃",R.drawable.ic_action_arrow ))
-        itemList.add(Item("퀸즈 컴뱃",R.drawable.ic_action_arrow ))
+        itemList.add(Item("나르샤 주짓수",R.drawable.ic_action_arrow ))
+        itemList.add(Item("아디다스 골든 챔스 주짓수",R.drawable.ic_action_arrow ))
+        itemList.add(Item("리그 로얄",R.drawable.ic_action_arrow ))
 
 
-        recyclerView.adapter = SiteListAdapter(requireContext(), itemList)
+        binding.recyclerView.adapter = SiteListAdapter(requireContext(), itemList)
 
-        recyclerView.layoutManager =
+        binding.recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-    }
+
+
+
+    } // onCreated
+
 
 }

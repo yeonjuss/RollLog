@@ -23,6 +23,12 @@ class LogActivity : AppCompatActivity() {
         db.execSQL("CREATE TABLE IF NOT EXISTS log(id PRIMARY KEY AUTOINCREMENT, date TEXT, title TEXT(80), event TEXT(1000) )")
 
 
+        binding.logChange.setOnClickListener {
+
+            finish()
+        }
+
+
         binding.logSubmit.setOnClickListener {
 
             var selectedDate:String= binding.selectedDateTv.text.toString()

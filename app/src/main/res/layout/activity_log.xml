@@ -195,16 +195,30 @@
 
     <Button
         android:id="@+id/log_photo"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="사진추가"
         android:layout_below="@id/line1"
         android:layout_alignRight="@id/line1"
-        android:layout_marginRight="100dp"
         android:layout_marginTop="16dp"
-        android:textSize="12sp"
+        android:layout_marginRight="204dp"
         android:backgroundTint="#B67272"
-        style="@style/Widget.MaterialComponents.Button"/>
+        android:text="사진추가"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/log_change"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line1"
+        android:layout_alignRight="@id/line1"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="101dp"
+        android:backgroundTint="#B67272"
+        android:text="수정"
+        android:textSize="12sp" />
+
 
     <Button
         android:id="@+id/log_submit"
