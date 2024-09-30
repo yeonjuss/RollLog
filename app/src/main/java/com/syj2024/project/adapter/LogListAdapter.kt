@@ -19,6 +19,7 @@ import com.syj2024.project.activity.LogActivity
 import com.syj2024.project.databinding.RecyclerItemListLogfragmentBinding
 import com.syj2024.project.fragment.Item
 import com.syj2024.project.fragment.Item2
+import com.syj2024.project.fragment.LogListFragment
 
 class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<LogListAdapter.VH2>(){
 
@@ -26,7 +27,7 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH2 {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogListAdapter.VH2 {
 
         val binding=RecyclerItemListLogfragmentBinding.inflate(LayoutInflater.from(context),parent,false)
             return VH2(binding)
@@ -42,8 +43,8 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
 
 
         holder.binding.tvDate.text = log.date
-        holder.binding.tvTitle.text = log.title
-        holder.binding.tvEvent.text = log.event
+        holder.binding.tvTitle.text = "제목" +" "+ log.title
+        holder.binding.tvEvent.text = "내용" +" "+ log.event
 
 
 
@@ -74,7 +75,8 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
             db.close()
 
             notifyItemRemoved(logList.size)
-            notifyItemRangeChanged(itemCount,logList.size)
+
+
 
 
         }
@@ -85,7 +87,7 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
         builder.setMessage("정말로 삭제하시겠습니까?")
 
         // 확인 버튼
-        builder.setPositiveButton("삭제") { dialog, _ ->
+        builder.setPositiveButton("확인") { dialog, _ ->
             removeList(log) // 아이템 삭제
             dialog.dismiss()
         }

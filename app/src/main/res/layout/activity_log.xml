@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#FFFF">
+    android:background="#FFFFFF">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -11,8 +11,6 @@
         android:layout_height="wrap_content"
         app:navigationIcon="@drawable/ic_action_back"
         android:background="#FFFFFF" />
-
-
 
     <TextView
         android:id="@+id/selectedDate_tv"
@@ -33,22 +31,33 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
         android:padding="8dp"
+        android:maxLength="1000"
         android:background="@drawable/bg_box1"
         android:hint="제목을 입력하세요"
         android:textSize="12sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_below="@id/log_et"
+        android:orientation="horizontal"/>
 
     <EditText
         android:id="@+id/log_et2"
         android:layout_width="350dp"
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="3dp"
         android:padding="8dp"
         android:hint="내용을 입력하세요(1000자 이내)"
         android:gravity="start"
         android:background="@drawable/bg_box1"
         android:textSize="12sp"
-        android:layout_below="@+id/log_et"/>
+        android:layout_below="@+id/recycler_view_log"/>
 
 
 

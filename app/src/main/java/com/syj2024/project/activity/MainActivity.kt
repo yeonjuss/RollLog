@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
         binding.bnv.setOnItemSelectedListener { menuItem ->
 
             when (menuItem.itemId) {
-                R.id.bnv_log -> supportFragmentManager.beginTransaction()
+                R.id.bnv_rc -> supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, CalenderFragment()).commit()
 
                 R.id.bnv_sd -> supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, SiteListFragment()).commit()
 
-                R.id.bnv_list -> supportFragmentManager.beginTransaction()
+                R.id.bnv_search -> supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, LogListFragment()).commit()
 
                 R.id.bnv_map -> supportFragmentManager.beginTransaction()

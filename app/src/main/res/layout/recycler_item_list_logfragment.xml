@@ -2,14 +2,19 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="16dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="#F0C8C0C2"
+    app:cardElevation="5dp"
     android:layout_marginTop="16dp"
     android:layout_marginLeft="32dp"
     android:layout_marginRight="32dp">
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
+         android:layout_width="match_parent"
          android:layout_height="match_parent">
 
         <ImageView

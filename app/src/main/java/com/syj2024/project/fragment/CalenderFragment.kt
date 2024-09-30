@@ -54,8 +54,8 @@ class CalenderFragment : Fragment() {
         calendarView.setOnDateChangedListener{ widget, date, selected ->
             selectedDate = "${date.year}-${date.month + 1}-${date.day}"
 
+        Toast.makeText(requireContext(), "Selected Date: ${date.day}/${date.month+1}/${date.year}", Toast.LENGTH_SHORT).show()
 
-        //Toast.makeText(requireContext(), "Selected Date: ${date.day}/${date.month+1}/${date.year}", Toast.LENGTH_SHORT).show()
         }
 
 
@@ -64,7 +64,6 @@ class CalenderFragment : Fragment() {
                 val intent = Intent(requireContext(), LogActivity::class.java)
                 intent.putExtra("selectedDate",selectedDate)
                 startActivity(intent)
-//              startActivity(Intent(requireContext(), LogActivity::class.java))
 
         }else{
                 calendarView.selectedDate = today
