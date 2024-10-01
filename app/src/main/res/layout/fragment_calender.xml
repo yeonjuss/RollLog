@@ -10,13 +10,13 @@
         android:id="@+id/mcv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mcv_selectionColor="@color/select"
+
         app:mcv_tileHeight="53dp"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         app:mcv_tileSize="53dp"
-        app:mcv_headerTextAppearance="@style/CalendarWidgetHeader"
+
         android:background="#FFFFFF"/>
 
 

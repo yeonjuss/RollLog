@@ -1,15 +1,22 @@
 package com.syj2024.project.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.syj2024.project.R
+import com.syj2024.project.databinding.RecyclerItemListFragmentBinding
+import com.syj2024.project.databinding.RecyclerviewLogimageActivityBinding
+
 
 class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : Adapter<LogImageAdapter.PhotoViewHolder>() {
 
@@ -19,7 +26,7 @@ class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
-        val inflater= LayoutInflater.from(context)
+        val inflater=LayoutInflater.from(context)
         val view= inflater.inflate(R.layout.recyclerview_logimage_activity, parent, false)
         return PhotoViewHolder(view)
     }
@@ -37,4 +44,5 @@ class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : 
 
 
 
-}
+    }
+

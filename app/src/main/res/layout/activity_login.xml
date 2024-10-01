@@ -10,7 +10,11 @@
     android:background="@color/white"
     tools:context=".activity.LoginActivity">
 
-
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF" />
 
     <ImageView
         android:id="@+id/iv_icon"

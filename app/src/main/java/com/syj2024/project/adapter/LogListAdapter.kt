@@ -29,7 +29,7 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogListAdapter.VH2 {
 
-        val binding=RecyclerItemListLogfragmentBinding.inflate(LayoutInflater.from(context),parent,false)
+        val binding =RecyclerItemListLogfragmentBinding.inflate(LayoutInflater.from(context),parent,false)
             return VH2(binding)
     }
 

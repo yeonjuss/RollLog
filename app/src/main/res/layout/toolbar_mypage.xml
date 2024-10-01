@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="40dp"
+    android:padding="8dp"
+    android:textColor="@color/white"
+    android:background="@drawable/bg_box"
+    android:backgroundTint="#BC5656"
+    android:text="마이페이지"/>
+
+    <ImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/profile"/>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_profile"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:textStyle="bold"
+        android:text="이름"/>
+
+    <TextView
+        android:id="@+id/tv_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:text="소속팀"/>
+
+    <TextView
+        android:id="@+id/tv_belt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_team"
+        android:layout_centerHorizontal="true"
+        android:text="벨트 보관함"/>
+
+    <ImageView
+        android:id="@+id/white_belt"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/tv_belt"
+        android:src="@drawable/white"/>
+
+    <ImageView
+        android:id="@+id/blue_belt"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="55dp"
+        android:layout_below="@+id/white_belt"
+        android:src="@drawable/blue"/>
+
+
+
+
+
+
+
+</RelativeLayout>

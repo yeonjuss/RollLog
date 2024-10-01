@@ -1,30 +1,27 @@
 package com.syj2024.project.fragment
 
-
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.syj2024.project.adapter.LogListAdapter
-import com.syj2024.project.adapter.SiteListAdapter
 import com.syj2024.project.databinding.FragmentLogListBinding
 
-class LogListFragment: Fragment() {
+
+class LogListFragment : Fragment() {
+
     lateinit var binding: FragmentLogListBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLogListBinding.inflate(inflater, container, false)
+        binding= FragmentLogListBinding.inflate(inflater,container,false)
         return binding.root
-
     }
 
     val logList: MutableList<Item2> = mutableListOf()
@@ -55,13 +52,17 @@ class LogListFragment: Fragment() {
             binding.recyclerViewLoglist.adapter = LogListAdapter(requireContext(), logList)
 
 
+
         }
 
 
 
     }
+
+
+
+
+
+
+
 }
-
-
-
-
