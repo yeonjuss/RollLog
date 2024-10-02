@@ -27,9 +27,9 @@ class SiteListAdapter constructor(val context:Context, val siteList: List<Item>)
     override fun onBindViewHolder(holder: SiteListAdapter.VH, position: Int) {
 
         val site = siteList.get(position)
-
+        Glide.with(context).load(site.img).into(holder.binding.siteIv)
         holder.binding.tvAddress.text = site.address
-//      Glide.with(context).load(site.img).into(holder.binding.ivSite)
+
 
 
         holder.itemView.setOnClickListener {

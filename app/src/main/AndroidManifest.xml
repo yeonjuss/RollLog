@@ -39,6 +39,7 @@
             android:name=".activity.MainActivity"
             android:exported="true" />
         <activity android:name=".activity.LogActivity" />
+        <activity android:name=".activity.MyPageActivity"/>
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

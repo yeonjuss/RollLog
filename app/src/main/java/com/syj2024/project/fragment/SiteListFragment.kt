@@ -31,13 +31,13 @@ class SiteListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        itemList.add(Item("스트릿 주짓수","https://www.street-jiujitsu.com/"  ))
-        itemList.add(Item("예거스컵 주짓수","https://www.jagerscup.com/" ))
-        itemList.add(Item("SGAA 주짓수","https://jiujitsukor.com/board/gallery/list.html?board_no=8" ))
-        itemList.add(Item("퀸즈 컴뱃","https://www.instagram.com/queenz_combat/" ))
-        itemList.add(Item("나르샤 주짓수","https://www.narshacup.com/" ))
-        itemList.add(Item("아디다스 골든 챔스 주짓수","https://acskorea.co.kr/board/free/list.html?board_no=1" ))
-        itemList.add(Item("리그 로얄","http://leagueroyale.co.kr/"))
+        itemList.add(Item(R.drawable.street,"스트릿 주짓수","https://www.street-jiujitsu.com/"  ))
+        itemList.add(Item(R.drawable.street,"예거스컵 주짓수","https://www.jagerscup.com/" ))
+        itemList.add(Item(R.drawable.street,"SGAA 주짓수","https://jiujitsukor.com/board/gallery/list.html?board_no=8" ))
+        itemList.add(Item(R.drawable.street,"퀸즈 컴뱃","https://www.instagram.com/queenz_combat/" ))
+        itemList.add(Item(R.drawable.street,"나르샤 주짓수","https://www.narshacup.com/" ))
+        itemList.add(Item(R.drawable.street,"아디다스 골든 챔스 주짓수","https://acskorea.co.kr/board/free/list.html?board_no=1" ))
+        itemList.add(Item(R.drawable.street,"리그 로얄","http://leagueroyale.co.kr/"))
 
 
         binding.recyclerView.adapter = SiteListAdapter(requireContext(), itemList)

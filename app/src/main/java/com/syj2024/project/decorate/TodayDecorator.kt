@@ -15,8 +15,7 @@ class TodayDecorator(val context: Context) : DayViewDecorator {
     }
 
     override fun decorate(view: DayViewFacade?) {
-        val drawable= ContextCompat.getDrawable(context, R.color.select)
-        //view?.setSelectionDrawable(drawable!!)
+        val drawable= ContextCompat.getDrawable(context, R.drawable.today_circle)
         view?.setBackgroundDrawable(drawable!!)   //배경 그림
         view?.addSpan(object : ForegroundColorSpan(Color.WHITE){})  //글씨 색상
     }

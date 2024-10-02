@@ -1,6 +1,7 @@
 package com.syj2024.project.fragment
 
 import android.content.Intent
+import android.graphics.Color
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,11 +11,13 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.prolificinteractive.materialcalendarview.CalendarDay
+import com.prolificinteractive.materialcalendarview.CalendarMode
 import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.syj2024.project.R
 import com.syj2024.project.activity.LogActivity
 import com.syj2024.project.databinding.FragmentCalenderBinding
+import com.syj2024.project.decorate.EventDecorator
 import com.syj2024.project.decorate.SundayDecorator
 import com.syj2024.project.decorate.TodayDecorator
 import java.util.Locale
@@ -22,9 +25,10 @@ import java.util.Locale
 class CalenderFragment : Fragment() {
 
     private lateinit var binding: FragmentCalenderBinding
-    val selectedDayList : MutableList<CalendarDay> = mutableListOf()// 특정 이벤트 날짜 리스트
+    val eventDays : MutableList<CalendarDay> = mutableListOf()// 특정 이벤트 날짜 리스트
     private var selectedDate: String? = null// 현재 선택한 날짜
     val today = CalendarDay.today()
+    var selectedDay:CalendarDay?= null
 
 
 
@@ -42,23 +46,34 @@ class CalenderFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+
         // 최소 및 최대 날짜 설정
              binding.mcv.state().edit()
-            .setMinimumDate(CalendarDay.from(2022, 1, 1)) // 최소 날짜 설정
+            .setMinimumDate(CalendarDay.from(2021, 12, 1)) // 최소 날짜 설정
             .setMaximumDate(CalendarDay.from(2100, 12, 31)) // 최대 날짜 설정
+            .setCalendarDisplayMode(CalendarMode.MONTHS)
             .commit()
 
-//        binding.mcv.selectedDate = today
+        binding.mcv.selectedDate = today
 
-//        // 날짜 선택 색상 설정
-//        binding.mcv.setSelectionColor(ContextCompat.getColor(requireContext(), R.color.select))
+        // 날짜 선택 색상 설정
+        binding.mcv.setSelectionColor(ContextCompat.getColor(requireContext(), R.color.select))
 
-
-        binding.mcv.addDecorators(
-            TodayDecorator(requireContext()),
-            SundayDecorator(),
+        binding.mcv.addDecorator(
+            TodayDecorator(requireContext())
 
             )
+
+        val eventDays = listOf(
+            CalendarDay.from(2024, 9, 2),
+            CalendarDay.from(2024, 9, 10),
+            CalendarDay.from(2024, 10, 5)
+        )
+
+        binding.mcv.addDecorator(EventDecorator(Color.RED,eventDays))
+
+
+
 
 
 
@@ -88,12 +103,15 @@ class CalenderFragment : Fragment() {
 
         }
 
-
-
         val dateFormat = SimpleDateFormat("yyyy년 MM월", Locale.getDefault())
         binding.mcv.setTitleFormatter { day ->
             dateFormat.format(day.date) // 포맷에 맞게 날짜 제목 표시
         }
+
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 package com.syj2024.project.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.syj2024.project.R
@@ -36,6 +37,19 @@ class MainActivity : AppCompatActivity() {
 
             }
             true
+        }
+
+        binding.toolbar.inflateMenu(R.menu.menu)
+
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.mypage->  {
+                    startActivity(Intent(this,MyPageActivity::class.java ))
+                   true
+                }
+                else -> false
+
+            }
         }
 
 

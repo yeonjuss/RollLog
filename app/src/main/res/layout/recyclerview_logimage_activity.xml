@@ -10,7 +10,9 @@
         android:id="@+id/iv_log"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:layout_marginHorizontal="5dp"/>
+
 
 
 

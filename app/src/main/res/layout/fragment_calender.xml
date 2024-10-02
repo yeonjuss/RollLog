@@ -5,19 +5,27 @@
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cd"
+        android:backgroundTint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:strokeWidth="1dp"
+        app:strokeColor="#F0EFEF"
+        android:layout_margin="8dp">
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/mcv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        app:mcv_tileHeight="53dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        app:mcv_tileHeight="55dp"
         app:mcv_tileSize="53dp"
-
+        android:theme="@style/CalenderViewCustom"
+        app:mcv_headerTextAppearance="@style/CalendarWidgetHeader"
+        app:mcv_weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+        app:mcv_dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:padding="16dp"
         android:background="#FFFFFF"/>
+    </com.google.android.material.card.MaterialCardView>
 
 
     <LinearLayout
@@ -25,11 +33,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F0EFEF"
-        android:layout_below="@+id/mcv"
+        android:layout_below="@+id/cd"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="90dp"
+            android:id="@+id/logo3"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/logo3"/>
     </LinearLayout>
 
@@ -38,38 +48,38 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv"
         android:layout_width="380dp"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         app:cardCornerRadius="8dp"
         android:layout_centerHorizontal="true"
         app:cardBackgroundColor="#E6DCDC"
         app:cardPreventCornerOverlap="true"
-        android:layout_marginTop="80dp"
-        android:layout_below="@+id/mcv">
+        android:layout_marginTop="75dp"
+        android:layout_below="@+id/cd">
 
 
-    <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="오늘의 운동을 기록하세요"
+            android:textAppearance="@font/yeongdeok_sea"
             android:textStyle="bold"
-            android:layout_marginTop="40dp"
+            android:textSize="13sp"
+            android:layout_marginTop="38dp"
             android:layout_marginLeft="50dp"/>
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#AB5858"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/mcv"
-        android:padding="16dp"
-        android:src="@drawable/ic_stat_edit"/>
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#AB5858"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/mcv"
+            android:padding="16dp"
+            android:src="@drawable/ic_stat_edit"/>
 
     </com.google.android.material.card.MaterialCardView>
-
-
 
 
 

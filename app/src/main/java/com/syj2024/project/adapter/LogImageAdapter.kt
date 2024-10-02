@@ -23,6 +23,7 @@ class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : 
     class PhotoViewHolder(itemView: View) : ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.iv_log)
 
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
@@ -33,6 +34,8 @@ class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : 
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         Glide.with(context).load(photoList[position]).into(holder.imageView)
+
+
 
 
     } //viewHolder

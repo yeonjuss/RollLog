@@ -74,8 +74,6 @@ class PlaceMapFragment : Fragment() {
 
 
 
-
-
     private fun searchQuery(keyword : String) {
 
         val retrofit = Retrofit.Builder() // Retrofit 구현

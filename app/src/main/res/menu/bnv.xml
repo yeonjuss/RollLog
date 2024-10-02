@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/bnv_rc" android:title="기록" android:icon="@drawable/baseline_border_color_24"/>
+    <item android:id="@+id/bnv_rc" android:title="캘린더" android:icon="@drawable/ic_action_calender"/>
     <item android:id="@+id/bnv_search" android:title="기록목록" android:icon="@drawable/ic_action_rc"/>
     <item android:id="@+id/bnv_openmat" android:title="오픈매트" android:icon="@drawable/baseline_people_open"/>
     <item android:id="@+id/bnv_sd" android:title="대회일정" android:icon="@drawable/ic_action_sd"/>
