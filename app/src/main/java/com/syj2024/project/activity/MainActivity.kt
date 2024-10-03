@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-//        binding.toolbar.inflateMenu(R.menu.menu)
 
         binding.toolbar.setOnMenuItemClickListener {
             when(it.itemId) {

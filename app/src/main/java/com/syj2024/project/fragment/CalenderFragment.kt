@@ -46,8 +46,6 @@ class CalenderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         // 최소 및 최대 날짜 설정
              binding.mcv.state().edit()
             .setMinimumDate(CalendarDay.from(2021, 12, 1)) // 최소 날짜 설정
@@ -107,13 +105,13 @@ class CalenderFragment : Fragment() {
             dateFormat.format(day.date) // 포맷에 맞게 날짜 제목 표시
         }
 
-        binding.mcv.setOnMonthChangedListener { widget, date ->
-
-            val localDate= LocalDate.of(date.year,date.month,1)
-            val lastDay= localDate.month.length(localDate.isLeapYear)
-
-
-        }
+//        binding.mcv.setOnMonthChangedListener { widget, date ->
+//
+//            val localDate= LocalDate.of(date.year,date.month,1)
+//            val lastDay= localDate.month.length(localDate.isLeapYear)
+//
+//
+//        }
 
 
 

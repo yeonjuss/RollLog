@@ -15,6 +15,8 @@ import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.CalendarMode
 import com.syj2024.project.adapter.LogListAdapter
 import com.syj2024.project.databinding.FragmentLogListBinding
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 
@@ -22,84 +24,81 @@ class LogListFragment : Fragment() {
 
     lateinit var binding: FragmentLogListBinding
     lateinit var logListAdapter: LogListAdapter
+    val logList: MutableList<Item2> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentLogListBinding.inflate(inflater,container,false)
+        binding = FragmentLogListBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    val logList: MutableList<Item2> = mutableListOf()
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         logListAdapter = LogListAdapter(requireContext(), logList)
         binding.recyclerViewLoglist.adapter = logListAdapter
 
 
-       val dateFormat = SimpleDateFormat("yyyy년 MM월", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("yyyy년 MM월", Locale.getDefault())
         binding.mcv.setTitleFormatter { day ->
             dateFormat.format(day.date) // 포맷에 맞게 날짜 제목 표시
         }
 
-      // sqlite 열기
-        val db: SQLiteDatabase = requireContext().openOrCreateDatabase("data", Context.MODE_PRIVATE, null)
+        // sqlite 열기
+        val db: SQLiteDatabase =
+            requireContext().openOrCreateDatabase("data", Context.MODE_PRIVATE, null)
 
-        val currentDate = CalendarDay.today()
-        loadMonthlyLogs(db, currentDate.year, currentDate.month + 1)
+        val currentDate = LocalDate.now()
+        loadMonthlyLogs(db, currentDate.year, currentDate.monthValue)
 
-        binding.mcv.setOnMonthChangedListener { _, date ->
-            Toast.makeText(requireContext(), "${date.month+1}월", Toast.LENGTH_SHORT).show()
-            loadMonthlyLogs(db, currentDate.year, currentDate.month + 1) // month는 0부터 시작하므로 +1
+        // 월 변경 리스너 추가
+        binding.mcv.setOnMonthChangedListener { widget, date ->
+            // 월 변경 시 해당 월의 데이터를 불러오기
+            loadMonthlyLogs(db, date.year, date.month + 1)  // month는 0부터 시작하므로 +1
         }
     }
 
-
-
-
+    // 특정 월의 데이터를 SQLite에서 조회하는 함수
     private fun loadMonthlyLogs(db: SQLiteDatabase, year: Int, month: Int) {
-        // 기존 리스트 초기화
+        // 기존 데이터 초기화
         logList.clear()
 
-        // 월별 기록을 불러오는 쿼리
-        val monthString = if (month < 10) "0$month" else month.toString()  // 1자리 숫자를 2자리로 변환
-        val datePattern = "$year-$monthString%"  // 'yyyy-MM%' 형식으로 쿼리
 
-        val cursor: Cursor = db.rawQuery("SELECT * FROM log WHERE date LIKE ?", arrayOf(datePattern))
+        // 해당 연도와 월에 해당하는 데이터를 쿼리로 가져오기 (yyyy-MM)
+        val datePattern = "$year-$month%"
 
+        // SQLite 쿼리 실행
+        val cursor: Cursor =
+            db.rawQuery("SELECT * FROM log WHERE date LIKE ?", arrayOf(datePattern))
 
-//      val cursor: Cursor = db.rawQuery("SELECT * FROM log", null)
-
-        //한 줄씩 읽어오기
+        // 결과 처리
         cursor?.apply {
-            if (moveToFirst()) {
-                do {
-                    val date = getString(getColumnIndexOrThrow("date"))
-                    val title = getString(getColumnIndexOrThrow("title"))
-                    val event = getString(getColumnIndexOrThrow("event"))
+            moveToFirst()
 
-                    // 리스트에 추가
-                    logList.add(Item2(date, title, event))
-                } while (moveToNext())
+            for (i in 0 until count) {
+                var id: Int = getInt(0)
+                var date = getString(1)
+                var title = getString(2)
+                var event = getString(3)
+
+                logList.add(Item2(date, title, event))
+
+                moveToNext()
+
             }
-
             // 커서 닫기
-            cursor.close()
+          cursor.close()
         }
-
-        // 어댑터에 데이터가 변경되었음을 알림
+        // 어댑터에 데이터 변경 알림
         logListAdapter.notifyDataSetChanged()
-
     }
 
 }
 
-      //OnCreateView
 
 
 

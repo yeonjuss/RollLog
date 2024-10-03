@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
@@ -21,9 +22,10 @@ import com.syj2024.project.fragment.Item
 import com.syj2024.project.fragment.Item2
 import com.syj2024.project.fragment.LogListFragment
 
-class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<LogListAdapter.VH2>(){
+class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Adapter<LogListAdapter.VH2>(){
 
     inner class VH2(var binding:RecyclerItemListLogfragmentBinding) : ViewHolder(binding.root)
+
 
 
 
@@ -49,7 +51,7 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
 
 
         holder.binding.ivDelete.setOnClickListener {
-            showDeleteConfirmationDialog(log)
+            showDeleteConfirmationDialog(log,position)
 
         }
 
@@ -67,10 +69,9 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
 
 
 
-
     }
 
-        fun removeList(log:Item2) {
+    private fun removeList(log: Item2, position: Int) {
 
             val db: SQLiteDatabase =
                 context.openOrCreateDatabase("data", Context.MODE_PRIVATE, null)
@@ -78,16 +79,22 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
             db.execSQL("DELETE FROM log WHERE title=?", arrayOf(log.title))
             db.close()
 
+            // 리스트에서 아이템 삭제
+            logList.removeAt(position)
+
+            // 어댑터에 데이터가 변경되었음을 알림
+            notifyItemRemoved(position)
+
 
         }
-    private fun showDeleteConfirmationDialog(log: Item2) {
+    private fun showDeleteConfirmationDialog(log: Item2 ,position: Int) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("리스트 삭제")
         builder.setMessage("정말로 삭제하시겠습니까?")
 
         // 확인 버튼
         builder.setPositiveButton("확인") { dialog, _ ->
-            removeList(log) // 아이템 삭제
+            removeList(log, position) // 아이템 삭제
             dialog.dismiss()
         }
         // 취소 버튼
@@ -98,8 +105,6 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
         val alertDialog = builder.create()
         alertDialog.show()
     }
-
-
 
 
 }
