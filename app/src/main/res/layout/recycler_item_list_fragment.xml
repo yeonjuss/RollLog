@@ -17,7 +17,7 @@
             android:id="@+id/site_iv"
             android:layout_width="70dp"
             android:layout_height="130dp"
-            android:scaleType="centerInside"
+            android:background="@drawable/bg_box"
             android:src="@drawable/street"/>
 
         <TextView

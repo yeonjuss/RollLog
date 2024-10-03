@@ -65,22 +65,21 @@ class LogListAdapter (val context: Context,val logList: List<Item2>) : Adapter<L
 
         }
 
+
+
+
     }
 
         fun removeList(log:Item2) {
 
-            val db:SQLiteDatabase= context.openOrCreateDatabase("data",Context.MODE_PRIVATE,null)
+            val db: SQLiteDatabase =
+                context.openOrCreateDatabase("data", Context.MODE_PRIVATE, null)
 
             db.execSQL("DELETE FROM log WHERE title=?", arrayOf(log.title))
             db.close()
 
-            notifyItemRemoved(logList.size)
-
-
-
 
         }
-
     private fun showDeleteConfirmationDialog(log: Item2) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("리스트 삭제")

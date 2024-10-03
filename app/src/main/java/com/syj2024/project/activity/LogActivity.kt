@@ -39,6 +39,8 @@ class LogActivity : AppCompatActivity() {
         binding.logEt.setText(title)
         binding.logEt2.setText(event)
 
+
+        // sqlite 데이터베이스 생성
         val db: SQLiteDatabase = openOrCreateDatabase("data", MODE_PRIVATE, null)
         db.execSQL("CREATE TABLE IF NOT EXISTS log(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, title TEXT(80), event TEXT(1000) )")
 

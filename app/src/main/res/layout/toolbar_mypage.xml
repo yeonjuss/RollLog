@@ -1,71 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-    android:layout_width="250dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="40dp"
-    android:padding="8dp"
-    android:textColor="@color/white"
-    android:background="@drawable/bg_box"
-    android:backgroundTint="#BC5656"
-    android:text="마이페이지"/>
+
+   <ImageView
+       android:id="@+id/iv_back"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:padding="16dp"
+       android:src="@drawable/ic_action_back"/>
+
+    <ImageView
+        android:id="@+id/iv_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:src="@drawable/ic_action_check"
+        android:layout_marginLeft="350dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_back"
+        android:orientation="vertical"
+        android:background="#FFFFFF"/>
 
     <ImageView
         android:id="@+id/iv_profile"
-        android:layout_width="150dp"
+        android:layout_width="130dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/profile"/>
+
+    <EditText
+        android:id="@+id/et_date"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_profile"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:padding="16dp"
+        android:hint="주짓수 시작일"/>
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/iv_profile"
-        android:layout_centerHorizontal="true"
-        android:padding="16dp"
+        android:layout_below="@+id/et_date"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="75dp"
         android:textStyle="bold"
         android:text="이름"/>
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/tv_name"
+        android:layout_below="@+id/et_date"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="75dp"
+        android:background="@drawable/bg_box"/>
 
     <TextView
         android:id="@+id/tv_team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_name"
-        android:layout_centerHorizontal="true"
-        android:padding="16dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="58dp"
+        android:textStyle="bold"
         android:text="소속팀"/>
 
+    <EditText
+        android:id="@+id/et_team"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/et_name"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="35dp"
+        android:layout_toRightOf="@+id/tv_team"
+        android:background="@drawable/bg_box" />
+
     <TextView
-        android:id="@+id/tv_belt"
+        android:id="@+id/tv_goal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_team"
-        android:layout_centerHorizontal="true"
-        android:text="벨트 보관함"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="58dp"
+        android:textStyle="bold"
+        android:text="올해의 목표"/>
 
-    <ImageView
-        android:id="@+id/white_belt"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="8dp"
-        android:layout_below="@+id/tv_belt"
-        android:src="@drawable/white"/>
+    <EditText
+        android:id="@+id/et_goal"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/tv_goal"
+        android:layout_below="@+id/et_team"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="50dp"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:hint="올해의 목표를 입력하세요"
+        android:background="@drawable/bg_box"/>
 
-    <ImageView
-        android:id="@+id/blue_belt"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="55dp"
-        android:layout_below="@+id/white_belt"
-        android:src="@drawable/blue"/>
+
+
+    <TextView
+        android:id="@+id/tv_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_goal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="58dp"
+        android:textStyle="bold"
+        android:text="이달의 목표"/>
+
+    <EditText
+        android:id="@+id/et_month"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/tv_goal"
+        android:layout_below="@+id/et_goal"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/bg_box"/>
+
+
+
+
+
+
+
+
 
 
 

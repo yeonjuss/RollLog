@@ -20,6 +20,7 @@ import com.syj2024.project.databinding.FragmentCalenderBinding
 import com.syj2024.project.decorate.EventDecorator
 import com.syj2024.project.decorate.SundayDecorator
 import com.syj2024.project.decorate.TodayDecorator
+import java.time.LocalDate
 import java.util.Locale
 
 class CalenderFragment : Fragment() {
@@ -75,8 +76,6 @@ class CalenderFragment : Fragment() {
 
 
 
-
-
         // 날짜 선택 리스너 설정
         binding.mcv.setOnDateChangedListener{ widget, date, selected ->
 
@@ -85,7 +84,7 @@ class CalenderFragment : Fragment() {
 
         }
 
-        //floating button 클릭 시 화면 전환
+        //floating button 클릭 시 logactivity에 데이터 전송
         binding.fab.setOnClickListener {
             if (selectedDate !=null) {
                 val intent = Intent(requireContext(), LogActivity::class.java)
@@ -106,6 +105,14 @@ class CalenderFragment : Fragment() {
         val dateFormat = SimpleDateFormat("yyyy년 MM월", Locale.getDefault())
         binding.mcv.setTitleFormatter { day ->
             dateFormat.format(day.date) // 포맷에 맞게 날짜 제목 표시
+        }
+
+        binding.mcv.setOnMonthChangedListener { widget, date ->
+
+            val localDate= LocalDate.of(date.year,date.month,1)
+            val lastDay= localDate.month.length(localDate.isLeapYear)
+
+
         }
 
 

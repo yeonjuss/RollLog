@@ -7,10 +7,26 @@
     android:background="@color/white"
     tools:context=".fragment.LogListFragment">
 
+
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:id="@+id/mcv"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:mcv_tileHeight="55dp"
+            app:mcv_tileSize="53dp"
+            android:theme="@style/CalenderViewCustom"
+            app:mcv_headerTextAppearance="@style/CalendarWidgetHeader"
+            app:mcv_weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+            app:mcv_dateTextAppearance="@style/CalenderViewDateCustomText"
+            android:padding="16dp"
+            android:background="#FFFFFF"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_loglist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/mcv"
+        android:layout_marginTop="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"/>
 
