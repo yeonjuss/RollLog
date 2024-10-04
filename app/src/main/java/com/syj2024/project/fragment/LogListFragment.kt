@@ -4,6 +4,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.icu.text.SimpleDateFormat
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -84,6 +85,8 @@ class LogListFragment : Fragment() {
                 var date = getString(1)
                 var title = getString(2)
                 var event = getString(3)
+//                val photoPaths = getString(4)
+//                val photoList = photoPaths?.split(",")?.map { Uri.parse(it) }?.toMutableList() ?: mutableListOf()
 
                 logList.add(Item2(date, title, event))
 

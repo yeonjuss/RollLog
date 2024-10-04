@@ -21,7 +21,7 @@
             android:id="@+id/iv_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_delete"
+            android:src="@drawable/ic_action_clear"
             android:layout_marginLeft="300dp"
             android:layout_marginTop="16dp"/>
 
@@ -33,6 +33,14 @@
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:text="날짜"/>
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="16dp"/>
 
         <TextView
             android:id="@+id/tv_title"

@@ -46,6 +46,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this,MyPageActivity::class.java ))
                    true
                 }
+                R.id.belt -> {
+                    startActivity(Intent(this,BeltStorageActivity::class.java ))
+                    true
+                }
                 else -> false
 
             }

@@ -43,8 +43,10 @@ class LogActivity : AppCompatActivity() {
         // sqlite 데이터베이스 생성
         val db: SQLiteDatabase = openOrCreateDatabase("data", MODE_PRIVATE, null)
         db.execSQL("CREATE TABLE IF NOT EXISTS log(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, title TEXT(80), event TEXT(1000) )")
+        db.execSQL("ALTER TABLE log ADD COLUMN photo TEXT")
 
-        binding.logChange.setOnClickListener {
+
+        binding.logSubmit.setOnClickListener {
             finish()
         }
 
@@ -52,17 +54,21 @@ class LogActivity : AppCompatActivity() {
             val dateText = binding.selectedDateTv.text.toString()
             val titleText = binding.logEt.text.toString()
             val eventText = binding.logEt2.text.toString()
+//            val photoPaths = photoList.map { it.toString() }.joinToString(",")
 
 
             val values = ContentValues().apply {
                 put("date", dateText)
                 put("title", titleText)
                 put("event", eventText)
+//                put("photo", photoPaths)
             }
 
 
             db.insert("log", null, values)
             Toast.makeText(this, "등록 완료", Toast.LENGTH_SHORT).show()
+
+            finish()
 
 
         }

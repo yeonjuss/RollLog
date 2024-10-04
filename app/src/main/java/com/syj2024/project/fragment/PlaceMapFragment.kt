@@ -30,7 +30,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
-class PlaceMapFragment : Fragment() {
+class PlaceMapFragment : Fragment() , OnMapReadyCallback {
     lateinit var binding: FragmentPlaceMapBinding
     private lateinit var nMap: NaverMap
 //    var searchQuery: String = "주짓수"
@@ -62,15 +62,21 @@ class PlaceMapFragment : Fragment() {
                     childFragmentManager.beginTransaction().add(R.id.map_fragment, it).commit()
                 }
 
+        mapFragment.getMapAsync(this)
+
+    }// onViewCreated
+
+       override fun onMapReady(naverMap: NaverMap) {
+            this.nMap = naverMap
 
 
+            searchQuery("주짓수")
+            searchQuery("MMA")
+            searchQuery("킥복싱")
 
-        searchQuery("주짓수")
 
+        }
 
-
-
-    }  // onViewCreated
 
 
 
@@ -91,6 +97,28 @@ class PlaceMapFragment : Fragment() {
 
                 Log.d("PlaceMapFragment", "Raw : ${response.raw()}")
                 Log.d("PlaceMapFragment", "Body : ${response.body()}")
+
+                if (response.isSuccessful) {
+                    val places = response.body()?.documents?.map { document ->
+                            Place(
+                                id = document.id,
+                                place_name = document.place_name,
+                                x = document.x, // 경도
+                                y = document.y   // 위도
+                            )
+
+
+
+                    } ?: emptyList()
+
+                    places.forEach { place ->
+                        addMarker(place)
+                    }
+
+                } else {
+                    Log.w("PlaceMapFragment", "검색 결과 실패: ${response.errorBody()}")
+                }
+
             }
 
             override fun onFailure(call: Call<ResultSearchKeyWord>, t: Throwable) {
@@ -104,7 +132,7 @@ class PlaceMapFragment : Fragment() {
     private fun addMarker(place: Place) {
         val marker = Marker()
         marker.position = LatLng(place.y.toDouble(),place.x.toDouble()) // 위도 경도
-        marker.icon = OverlayImage.fromResource(R.drawable.baseline_people_open)
+        marker.icon = OverlayImage.fromResource(R.drawable.ic_action_location)
         marker.captionText = place.place_name
         marker.map = nMap
 

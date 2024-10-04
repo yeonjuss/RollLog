@@ -2,19 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
 
 
-    <ImageView
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_log"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:layout_marginHorizontal="5dp"/>
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+       />
+    </androidx.cardview.widget.CardView>
 
 
 
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/iv_log"-->
+<!--        android:layout_width="350dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:background="@drawable/bg_imgview"-->
+<!--        android:clipToOutline="true"-->
+<!--        android:adjustViewBounds="true"/>-->
 
 
 </LinearLayout>

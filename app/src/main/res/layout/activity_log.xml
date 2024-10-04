@@ -22,31 +22,34 @@
         android:textStyle="bold"
         android:textSize="16sp"
         android:fontFamily="@font/yeongdeok_sea"
-        android:textAlignment="center"
+        android:layout_gravity="center"
         android:layout_marginTop="8dp"/>
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <EditText
-        android:id="@+id/log_et"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="90dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/bg_box1"
-        android:padding="8dp"
-        android:maxLength="20"
-        android:hint="제목을 입력하세요"
-        android:textSize="12sp" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_log"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="12dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_below="@id/log_et"
+        android:layout_below="@id/toolbar"
         android:orientation="horizontal"/>
+
+    <EditText
+        android:id="@+id/log_et"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/recycler_view_log"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
+        android:maxLength="20"
+        android:padding="8dp"
+        android:background="#F6F2F2"
+        android:hint="제목을 입력하세요(20자 이내)"
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/log_et2"
@@ -57,9 +60,9 @@
         android:padding="8dp"
         android:hint="내용을 입력하세요(1000자 이내)"
         android:gravity="start"
-        android:background="@drawable/bg_box1"
+        android:background="#F6F2F2"
         android:textSize="12sp"
-        android:layout_below="@+id/recycler_view_log"/>
+        android:layout_below="@+id/log_et"/>
 
 
 
@@ -69,7 +72,7 @@
         android:layout_height="158dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/bg_box1"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="8dp"
         android:layout_below="@+id/log_et2"
         android:orientation="horizontal">
 
@@ -86,7 +89,6 @@
 
     </LinearLayout>
 
-
     <com.google.android.material.chip.Chip
         android:id="@+id/log_btn1"
         style="@style/Widget.MaterialComponents.Chip.Filter"
@@ -94,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/log_et2"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         app:chipBackgroundColor="#BDB6B6"
         android:text="스탠딩"
         android:textStyle="bold"
@@ -111,7 +113,7 @@
         android:textStyle="bold"
         android:layout_below="@id/log_et2"
         android:layout_toRightOf="@+id/log_btn1"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="12dp"
         style="@style/Widget.MaterialComponents.Chip.Filter"
         app:chipBackgroundColor="#BDB6B6"
@@ -126,7 +128,7 @@
         android:textStyle="bold"
         android:layout_below="@id/log_et2"
         android:layout_toRightOf="@+id/log_btn2"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="12dp"
         style="@style/Widget.MaterialComponents.Chip.Filter"
         app:chipBackgroundColor="#BDB6B6"
@@ -140,7 +142,7 @@
         android:text="가드패스"
         android:textStyle="bold"
         android:layout_toRightOf="@id/log_btn3"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="12dp"
         android:layout_below="@id/log_et2"
         style="@style/Widget.MaterialComponents.Chip.Filter"
@@ -204,44 +206,22 @@
         android:textSize="12sp"/>
 
 
-    <Button
+    <ImageView
         android:id="@+id/log_photo"
-        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/line1"
-        android:layout_alignRight="@id/line1"
+        android:layout_marginLeft="300dp"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="204dp"
-        android:backgroundTint="#B67272"
-        android:text="사진추가"
-        android:textSize="12sp" />
+        android:src="@drawable/ic_action_image" />
 
-    <Button
-        android:id="@+id/log_change"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/line1"
-        android:layout_alignRight="@id/line1"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="101dp"
-        android:backgroundTint="#B67272"
-        android:text="수정"
-        android:textSize="12sp" />
-
-
-    <Button
+    <ImageView
         android:id="@+id/log_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="등록"
-        android:layout_below="@id/line1"
         android:layout_alignRight="@id/line1"
-        android:layout_marginTop="16dp"
-        android:textSize="12sp"
-        android:backgroundTint="#B67272"
-        style="@style/Widget.MaterialComponents.Button"/>
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_action_check" />
 
 
 

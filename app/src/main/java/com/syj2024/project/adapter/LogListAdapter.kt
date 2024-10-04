@@ -45,8 +45,19 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
 
 
         holder.binding.tvDate.text = log.date
-        holder.binding.tvTitle.text = "제목" +" "+ log.title
-        holder.binding.tvEvent.text = "내용" +" "+ log.event
+        holder.binding.tvTitle.text = "제목" + " " + log.title
+        holder.binding.tvEvent.text = "내용" + " " + log.event
+
+
+
+//        if (log.photoList.isNotEmpty()) {
+//
+//            val firstImageUri = log.photoList[0]
+//            holder.binding.iv.setImageURI(firstImageUri)
+//        } else {
+//            holder.binding.iv.setImageResource(R.drawable.ic_action_image)
+//        }
+
 
 
 
@@ -61,6 +72,8 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
                 putExtra("date",log.date)
                 putExtra("title",log.title)
                 putExtra("event",log.event)
+//                putExtra("photo", log.photoList.joinToString(","))
+
 
             }
             context.startActivity(intent)
