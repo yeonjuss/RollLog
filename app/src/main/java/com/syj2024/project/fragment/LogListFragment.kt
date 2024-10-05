@@ -85,10 +85,10 @@ class LogListFragment : Fragment() {
                 var date = getString(1)
                 var title = getString(2)
                 var event = getString(3)
-//                val photoPaths = getString(4)
-//                val photoList = photoPaths?.split(",")?.map { Uri.parse(it) }?.toMutableList() ?: mutableListOf()
+                val photoPaths = getString(4)
+                val photoList = photoPaths?.split(",")?.map { Uri.parse(it) }?.toMutableList() ?: mutableListOf()
 
-                logList.add(Item2(date, title, event))
+                logList.add(Item2(date, title, event,photoList))
 
                 moveToNext()
 

@@ -34,13 +34,22 @@
             android:textStyle="bold"
             android:text="날짜"/>
 
-        <ImageView
-            android:id="@+id/iv"
+        <androidx.cardview.widget.CardView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="200dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="19dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+        </androidx.cardview.widget.CardView>
+
+
 
         <TextView
             android:id="@+id/tv_title"

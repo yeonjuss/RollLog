@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
         <activity
+            android:name=".activity.OpenMatActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.SignUpActivity2"
             android:exported="false" />
         <activity
@@ -39,14 +42,12 @@
             android:name=".activity.MainActivity"
             android:exported="true" />
         <activity android:name=".activity.LogActivity" />
-        <activity android:name=".activity.MyPageActivity"/>
-        <activity android:name=".activity.BeltStorageActivity"/>
+        <activity android:name=".activity.MyPageActivity" />
+        <activity android:name=".activity.BeltStorageActivity" />
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="gz4ggxr920" />
-
-
     </application>
 
 </manifest>

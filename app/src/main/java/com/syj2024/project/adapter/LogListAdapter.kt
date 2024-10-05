@@ -3,6 +3,7 @@ package com.syj2024.project.adapter
 import android.content.Context
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -43,24 +44,29 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
 
         val log = logList.get(position)
 
-
         holder.binding.tvDate.text = log.date
         holder.binding.tvTitle.text = "제목" + " " + log.title
         holder.binding.tvEvent.text = "내용" + " " + log.event
 
 
 
-//        if (log.photoList.isNotEmpty()) {
-//
-//            val firstImageUri = log.photoList[0]
-//            holder.binding.iv.setImageURI(firstImageUri)
-//        } else {
-//            holder.binding.iv.setImageResource(R.drawable.ic_action_image)
-//        }
+        // 이미지 설정 (photoList가 비어있지 않고, 첫 번째 이미지가 null이 아닐 경우)
+        if (log.photoList.isNotEmpty() && log.photoList[0] != null) {
+            val firstImageUri = log.photoList[0]  // 첫 번째 이미지 URI 가져오기
+
+            // Glide를 사용해 이미지 로드
+            Glide.with(context)
+                .load(firstImageUri)  // URI 또는 URL
+                .placeholder(R.drawable.ic_action_image)  // 이미지 로드 전 보여줄 기본 이미지
+                .error(R.drawable.ic_action_rc)  // 이미지 로드 실패 시 보여줄 이미지
+                .into(holder.binding.iv)  // ImageView에 이미지 설정
+        } else {
+            // 이미지가 없는 경우 기본 이미지를 설정
+            holder.binding.iv.setImageResource(R.drawable.ic_action_image)
+        }
 
 
-
-
+       // 삭제 버튼 눌렀을때 삭제 확인 다이얼로그 띄우기
         holder.binding.ivDelete.setOnClickListener {
             showDeleteConfirmationDialog(log,position)
 
@@ -73,6 +79,10 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
                 putExtra("title",log.title)
                 putExtra("event",log.event)
 //                putExtra("photo", log.photoList.joinToString(","))
+
+                // Uri list를 ArrayList로 변환하여 전달
+                putParcelableArrayListExtra("photoList", ArrayList(log.photoList.filterNotNull()))
+
 
 
             }

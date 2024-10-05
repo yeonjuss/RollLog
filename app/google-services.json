@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "333265012083",
+    "project_id": "rolllog-6d672",
+    "storage_bucket": "rolllog-6d672.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333265012083:android:92c6326d66f0ac7ddf7106",
+        "android_client_info": {
+          "package_name": "com.syj2024.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ8leKV9h-LIluf3zRdHtFyQMnI-196_g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
