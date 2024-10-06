@@ -22,6 +22,7 @@ import com.syj2024.project.databinding.RecyclerItemListLogfragmentBinding
 import com.syj2024.project.fragment.Item
 import com.syj2024.project.fragment.Item2
 import com.syj2024.project.fragment.LogListFragment
+import okhttp3.internal.immutableListOf
 
 class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Adapter<LogListAdapter.VH2>(){
 
@@ -31,7 +32,6 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogListAdapter.VH2 {
-
         val binding =RecyclerItemListLogfragmentBinding.inflate(LayoutInflater.from(context),parent,false)
             return VH2(binding)
     }
@@ -53,15 +53,12 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
         // 이미지 설정 (photoList가 비어있지 않고, 첫 번째 이미지가 null이 아닐 경우)
         if (log.photoList.isNotEmpty() && log.photoList[0] != null) {
             val firstImageUri = log.photoList[0]  // 첫 번째 이미지 URI 가져오기
-
-            // Glide를 사용해 이미지 로드
-            Glide.with(context)
-                .load(firstImageUri)  // URI 또는 URL
-                .placeholder(R.drawable.ic_action_image)  // 이미지 로드 전 보여줄 기본 이미지
-                .error(R.drawable.ic_action_rc)  // 이미지 로드 실패 시 보여줄 이미지
-                .into(holder.binding.iv)  // ImageView에 이미지 설정
+            Glide.with(holder.itemView.context)
+                .load(firstImageUri)
+                .placeholder(R.drawable.ic_action_image)
+                .error(R.drawable.ic_action_rc)
+                .into(holder.binding.iv)
         } else {
-            // 이미지가 없는 경우 기본 이미지를 설정
             holder.binding.iv.setImageResource(R.drawable.ic_action_image)
         }
 
@@ -78,7 +75,7 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
                 putExtra("date",log.date)
                 putExtra("title",log.title)
                 putExtra("event",log.event)
-//                putExtra("photo", log.photoList.joinToString(","))
+//              putExtra("photo", log.photoList.joinToString(","))
 
                 // Uri list를 ArrayList로 변환하여 전달
                 putParcelableArrayListExtra("photoList", ArrayList(log.photoList.filterNotNull()))

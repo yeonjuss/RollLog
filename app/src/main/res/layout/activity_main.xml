@@ -34,7 +34,11 @@
         app:menu="@menu/bnv"
         app:labelVisibilityMode="labeled"
         android:background="@color/white"
+        app:itemIconTint="@color/bottomnavigation"
+        app:itemTextColor="@color/black"
+        app:elevation="16dp"
         android:layout_alignParentBottom="true" />
+
 
 
 </RelativeLayout>

@@ -22,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_action_clear"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginLeft="310dp"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/tv_date"
@@ -66,6 +66,13 @@
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="24dp"
             android:text="event"/>
+
+        <ImageView
+            android:id="@+id/iv_loglistimg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="20dp"/>
 
     </RelativeLayout>
 

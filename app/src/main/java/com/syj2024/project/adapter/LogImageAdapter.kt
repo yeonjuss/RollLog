@@ -37,7 +37,6 @@ class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : 
 
 
 
-
     } //viewHolder
 
     override fun getItemCount(): Int {
