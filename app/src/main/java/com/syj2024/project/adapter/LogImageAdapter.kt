@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.content.IntentCompat.getParcelableArrayListExtra
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -33,18 +35,31 @@ class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : 
     }
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
-        Glide.with(context).load(photoList[position]).into(holder.imageView)
+//    Glide.with(context).load(photoList[position]).into(holder.imageView)
+
+        val photoUri = photoList[position]
+
+        // photoUri가 null이거나 빈 URI인지 확인
+        if (photoUri == null || photoUri.toString().isEmpty()) {
+            holder.imageView.visibility = View.GONE  // ImageView 숨기기
+        } else {
+            holder.imageView.visibility = View.VISIBLE  // ImageView 보이기
+            // Glide로 이미지 로드
+            Glide.with(context)
+                .load(photoUri)
+                .into(holder.imageView)
+        }
+
+
+    }//viewHolder
 
 
 
-    } //viewHolder
 
     override fun getItemCount(): Int {
         return photoList.size
     }
 
 
-
-
-    }
+}
 

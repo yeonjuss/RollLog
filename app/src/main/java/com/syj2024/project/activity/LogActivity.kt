@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -48,7 +49,6 @@ class LogActivity : AppCompatActivity() {
 //                .map { Uri.parse(it.trim()) }
 //
 //        }
-
         // UI 초기화
         binding.selectedDateTv.text = date ?: selectedDate
         binding.logEt.setText(title)
@@ -56,24 +56,26 @@ class LogActivity : AppCompatActivity() {
 
         // 받은 photoList가 비어있지 않으면 photoList에 추가
         if (!receivedPhotoList.isNullOrEmpty()) {
-            photoList.addAll(receivedPhotoList)  // photoList에 데이터 추가
+            photoList.addAll(receivedPhotoList) // photoList에 데이터 추가
         }
+            // 사진이 있는 경우 ImageView 표시
+//        } else {
+//            // 사진이 없는 경우, 빈 RecyclerView 또는 기본 이미지 처리 (옵션)
+//            binding.recyclerViewLog.visibility = View.GONE
+//        }
+
             // RecyclerView에 어댑터 설정
             adapter = LogImageAdapter(this, photoList)
             binding.recyclerViewLog.adapter = adapter
             binding.recyclerViewLog.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-//        } else {
-//            // 사진이 없는 경우, 빈 RecyclerView 또는 기본 이미지 처리 (옵션)
-//            Toast.makeText(this, "저장된 이미지가 없습니다.", Toast.LENGTH_SHORT).show()
-//        }
 
 
 
 
 
 
-            // sqlite 데이터베이스 생성
-            val db: SQLiteDatabase = openOrCreateDatabase("data", MODE_PRIVATE, null)
+        // sqlite 데이터베이스 생성
+           val db: SQLiteDatabase = openOrCreateDatabase("data", MODE_PRIVATE, null)
             db.execSQL("CREATE TABLE IF NOT EXISTS log(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, title TEXT(80), event TEXT(1000) )")
             try {
                 db.execSQL("ALTER TABLE log ADD COLUMN photo TEXT")
@@ -86,6 +88,8 @@ class LogActivity : AppCompatActivity() {
                 finish()
             }
 
+
+           // 등록 버튼 눌렀을때 데이터 전송
             binding.logSubmit.setOnClickListener {
                 val dateText = binding.selectedDateTv.text.toString()
                 val titleText = binding.logEt.text.toString()
@@ -114,7 +118,6 @@ class LogActivity : AppCompatActivity() {
 
         }
 
-
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 
@@ -133,8 +136,12 @@ class LogActivity : AppCompatActivity() {
                     }
 
                     binding.recyclerViewLog.adapter = LogImageAdapter(this, photoList)
+                    adapter.notifyDataSetChanged()
+
+
 
                 }
+
             }
 
 

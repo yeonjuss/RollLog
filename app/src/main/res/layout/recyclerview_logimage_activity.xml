@@ -7,23 +7,32 @@
 
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cv1"-->
+<!--        android:layout_width="350dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        app:cardCornerRadius="8dp">-->
 
-    <androidx.appcompat.widget.AppCompatImageView
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/iv_log"-->
+<!--            android:layout_width="350dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:scaleType="centerCrop" />-->
+<!--    </androidx.cardview.widget.CardView>-->
+
+
+    <ImageView
         android:id="@+id/iv_log"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
         android:layout_width="350dp"
         android:layout_height="200dp"
-       />
-    </androidx.cardview.widget.CardView>
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_imgview"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop" />
 
 
-
-<!--    <androidx.appcompat.widget.AppCompatImageView-->
+    <!--    <androidx.appcompat.widget.AppCompatImageView-->
 <!--        android:id="@+id/iv_log"-->
 <!--        android:layout_width="350dp"-->
 <!--        android:layout_height="200dp"-->
