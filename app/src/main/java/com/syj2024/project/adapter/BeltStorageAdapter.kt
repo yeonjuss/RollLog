@@ -5,7 +5,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.syj2024.project.R
@@ -18,6 +20,7 @@ class BeltStorageAdapter (val beltList: MutableList<BeltStorageItme>,val context
 
     inner class ViewHolder(var binding: RecyclerItemListBeltstoreBinding) :
         RecyclerView.ViewHolder(binding.root)
+    private var currentGrade = 0
 
 
 
@@ -29,6 +32,10 @@ class BeltStorageAdapter (val beltList: MutableList<BeltStorageItme>,val context
         val binding =
             RecyclerItemListBeltstoreBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(binding)
+    }
+
+    override fun getItemCount(): Int {
+        return beltList.size
     }
 
 
@@ -45,11 +52,50 @@ class BeltStorageAdapter (val beltList: MutableList<BeltStorageItme>,val context
             showDatePickerDialog(holder.binding.tvDate)
             // DatePickerDialog 코드
         }
-    }
 
 
-    override fun getItemCount(): Int {
-        return beltList.size
+
+
+
+
+        fun addGradeLayout(grade: Int) {
+            // 새로운 레이아웃 생성
+            val gradeLayout = LayoutInflater.from(context).inflate(R.layout.grade_item, null)
+
+            // 각 뷰에 데이터 설정
+            val tvGrau = gradeLayout.findViewById<TextView>(R.id.tv_grau)
+            val tvDate = gradeLayout.findViewById<TextView>(R.id.tv_date)
+            val ivGrauCalendar = gradeLayout.findViewById<ImageView>(R.id.iv_grau_calender)
+
+            // 그랄 수와 날짜 설정
+            tvGrau.text = "$grade grau"
+            tvDate.text = "date" // 여기에 날짜를 입력할 수 있습니다.
+
+            // 날짜 이미지 설정
+            ivGrauCalendar.setImageResource(R.drawable.ic_action_calender2) // 적절한 이미지 설정
+
+            // 부모 LinearLayout에 추가
+            holder.binding.gradesContainer.addView(gradeLayout)
+
+        }
+
+        // 그랄 추가 버튼 클릭 리스너
+        holder.binding.addGradeButton.setOnClickListener {
+            if (currentGrade < 4) { // 최대 4그랄까지 가능
+                currentGrade++
+                addGradeLayout(currentGrade)
+            } else {
+                Toast.makeText(context, "추가완료.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        holder.binding.ivGrauCalender.setOnClickListener {
+            showDatePickerDialog(holder.binding.tvDate)
+        }
+
+
+
+
     }
 
 
@@ -79,5 +125,8 @@ class BeltStorageAdapter (val beltList: MutableList<BeltStorageItme>,val context
 
         datePickerDialog.show()
     }
+
+
 }
+
 
