@@ -22,6 +22,8 @@
         android:padding="16dp"
         android:layout_toRightOf="@+id/iv_back"/>
 
+
+
     <TextView
         android:id="@+id/tv_belt"
         android:layout_width="wrap_content"
@@ -40,367 +42,60 @@
         android:layout_marginLeft="30dp"
         android:text="승급 날짜를 입력하세요."/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="2000dp"
-        android:layout_below="@id/tv_belt2">
-
-    <RelativeLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
+    <Spinner
+        android:id="@+id/belt_color_spinner"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/tv_belt2"
+        android:entries="@array/belt_colors" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="색상을 선택 후 버튼을 클릭해주세요"
         android:layout_below="@id/tv_belt2"
-        android:layout_marginTop="14dp"
-        android:background="#F6F2F2">
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@id/belt_color_spinner"/>
 
-        <ImageView
-            android:id="@+id/iv_white"
-            android:layout_width="120dp"
+    <com.google.android.material.chip.Chip
+        android:id="@+id/add_belt_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/belt_color_spinner"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_below="@id/tv_belt2"
+        android:textStyle="bold"
+        app:chipBackgroundColor="#BDB6B6"
+        android:layout_marginLeft="190dp"
+        android:text="Add Belt" />
+
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="5px"
+        android:layout_marginTop="3dp"
+        android:layout_below="@+id/add_belt_button"
+        android:background="#D5D5D5"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/tv_belt2"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:adjustViewBounds="true"
-            android:backgroundTint="#DFE3EB"
-            android:src="@drawable/white" />
-
-        <ImageView
-            android:id="@+id/iv_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_add2"/>
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/recycler_view1"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_below="@+id/iv_white"-->
-<!--            android:layout_marginLeft="200dp"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>-->
-
-        <TextView
-            android:id="@+id/tv_white_zero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iv_white"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="30dp"
-            android:text="0 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_white"
-            android:text="date"
-            android:layout_toRightOf="@+id/tv_white_zero"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="2dp"/>
-        <ImageView
-            android:id="@+id/iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_calender2"
-            android:layout_toRightOf="@id/tv_date"
-            android:layout_below="@id/iv_white"
-            android:layout_marginLeft="60dp"/>
+            android:layout_marginTop="53dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
 
-        <TextView
-            android:id="@+id/tv_white_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_white_zero"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="1 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_white_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_white_one"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="2 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_white_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_white_two"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="3 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_white_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_white_three"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="4 grau"
-            android:textColor="#8A8888" />
-
-        <ImageView
-            android:id="@+id/iv_blue"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_white_four"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:adjustViewBounds="true"
-            android:backgroundTint="#436BBC"
-            android:src="@drawable/blue"
-            android:text="belt" />
 
 
 
-        <TextView
-            android:id="@+id/tv_blue_zero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iv_blue"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="3dp"
-            android:text="0 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_blue_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_blue_zero"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:text="1 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_blue_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_blue_one"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="2 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_blue_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_blue_two"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="3 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_blue_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_blue_three"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="4 grau"
-            android:textColor="#8A8888" />
-
-        <ImageView
-            android:id="@+id/iv_purple"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_blue_four"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="3dp"
-            android:adjustViewBounds="true"
-            android:backgroundTint="#436BBC"
-            android:src="@drawable/purple"
-            android:text="belt" />
-
-        <TextView
-            android:id="@+id/tv_purple_zero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iv_purple"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="3dp"
-            android:text="0 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_purple_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_purple_zero"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="1 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_purple_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_purple_one"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="2 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_purple_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_purple_two"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="3 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_purple_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_purple_three"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="4 grau"
-            android:textColor="#8A8888" />
-
-        <ImageView
-            android:id="@+id/iv_brown"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_purple_four"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:adjustViewBounds="true"
-            android:backgroundTint="#436BBC"
-            android:src="@drawable/brown"
-            android:text="belt" />
-
-        <TextView
-            android:id="@+id/tv_brown_zero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iv_brown"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="2dp"
-            android:text="0 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_brown_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_brown_zero"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="1 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_brown_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_brown_one"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="2 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_brown_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_brown_two"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="3 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_brown_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_brown_three"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:text="4 grau"
-            android:textColor="#8A8888" />
-
-        <ImageView
-            android:id="@+id/iv_black"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_brown_four"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/black"
-            android:text="belt" />
-
-        <TextView
-            android:id="@+id/tv_black_zero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iv_black"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="3dp"
-            android:text="0 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_black_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_black_zero"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:text="1 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_black_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_black_one"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:text="2 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_black_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_black_two"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:text="3 grau"
-            android:textColor="#8A8888" />
-
-        <TextView
-            android:id="@+id/tv_black_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_black_three"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:text="4 grau"
-            android:textColor="#8A8888" />
-
-
-    </RelativeLayout>
-
-</ScrollView>
 
 
 

@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">Project</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 벨트 색상 배열 -->
+    <string-array name="belt_colors">
+        <item>White</item>
+        <item>Blue</item>
+        <item>Purple</item>
+        <item>Brown</item>
+        <item>Black</item>
+    </string-array>
+
+
+
+
+
 </resources>

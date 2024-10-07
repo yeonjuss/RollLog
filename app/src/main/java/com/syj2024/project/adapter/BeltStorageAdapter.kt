@@ -10,39 +10,74 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.syj2024.project.R
 import com.syj2024.project.activity.BeltStorageItme
-import com.syj2024.project.databinding.RecyclerItemListBeltActivityBinding
+
+import com.syj2024.project.databinding.RecyclerItemListBeltstoreBinding
 import java.util.Calendar
 
-class BeltStorageAdapter constructor(val context: Context , val beltList: MutableList<BeltStorageItme>) : Adapter<BeltStorageAdapter.ViewHolder> () {
-    private var calendar = Calendar.getInstance()
-    private var year = calendar.get(Calendar.YEAR)
-    private var month = calendar.get(Calendar.MONTH)
-    private var day = calendar.get(Calendar.DAY_OF_MONTH)
+class BeltStorageAdapter (val beltList: MutableList<BeltStorageItme>,val context: Context ) : Adapter<BeltStorageAdapter.ViewHolder> () {
 
-   inner class ViewHolder(var binding: RecyclerItemListBeltActivityBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(var binding: RecyclerItemListBeltstoreBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): BeltStorageAdapter.ViewHolder {
 
-        val binding= RecyclerItemListBeltActivityBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding =
+            RecyclerItemListBeltstoreBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(binding)
     }
 
 
     override fun onBindViewHolder(holder: BeltStorageAdapter.ViewHolder, position: Int) {
 
-        val belt = beltList.get(position)
-
-        holder.binding.tvGrau.text = belt.grau
+        val belt = beltList[position]
+        holder.binding.tvGrau.text = "${belt.grau} grau"
         holder.binding.tvDate.text = belt.date
+        // 벨트 색상에 따라 이미지 설정 (여기서 이미지를 변경할 수 있음)
+        holder.binding.beltImage.setImageResource(getBeltImageResource(belt.color))
 
-
-
+        // 날짜 클릭 리스너 추가
+        holder.binding.ivGrauCalender.setOnClickListener {
+            showDatePickerDialog(holder.binding.tvDate)
+            // DatePickerDialog 코드
+        }
     }
+
 
     override fun getItemCount(): Int {
-        return  beltList.size
+        return beltList.size
+    }
+
+
+    private fun getBeltImageResource(color: String): Int {
+        return when (color) {
+            "White" -> R.drawable.white
+            "Blue" -> R.drawable.blue
+            "Purple" -> R.drawable.purple
+            "Brown" -> R.drawable.brown
+            "Black" -> R.drawable.black
+            else -> R.drawable.ic_action_menu // 기본 이미지
+        }
+    }
+
+    private fun showDatePickerDialog(tvDate: TextView) {
+        // 현재 날짜 가져오기
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // DatePickerDialog 생성
+        val datePickerDialog = DatePickerDialog(context, { _, selectedYear, selectedMonth, selectedDay ->
+            // 선택한 날짜를 TextView에 설정
+            tvDate.text = "$selectedYear/${selectedMonth + 1}/$selectedDay"
+        }, year, month, day)
+
+        datePickerDialog.show()
     }
 }
+

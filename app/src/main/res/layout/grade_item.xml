@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
+
+
 
     <TextView
         android:id="@+id/tv_grau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
-        android:text="grau"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="20dp"
+        android:text="0 grau"
         android:textColor="#8A8888" />
 
     <TextView
@@ -18,15 +20,25 @@
         android:layout_height="wrap_content"
         android:text="date"
         android:layout_toRightOf="@+id/tv_grau"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="2dp"/>
     <ImageView
-        android:id="@+id/iv_calender"
+        android:id="@+id/iv_grau_calender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_action_calender2"
         android:layout_toRightOf="@id/tv_date"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="2dp"/>
+        android:layout_marginLeft="30dp"/>
+
+    <!--  그랄 추가 버튼-->
+    <ImageView
+        android:id="@+id/add_grade_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_grau_calender"
+        android:src="@drawable/ic_action_add2"/>
+
+
+
 
 </RelativeLayout>
