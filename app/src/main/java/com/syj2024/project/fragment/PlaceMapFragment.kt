@@ -33,7 +33,9 @@ import retrofit2.create
 class PlaceMapFragment : Fragment() , OnMapReadyCallback {
     lateinit var binding: FragmentPlaceMapBinding
     private lateinit var nMap: NaverMap
-//    var searchQuery: String = "주짓수"
+    private val placeList = mutableListOf<Place>() // 검색된 장소 정보를 저장하는 리스트
+    var searchPlaceResponse: ResultSearchKeyWord?=null
+
 
     var mylocation: Location? = null
     var resultSearchKeyWord: ResultSearchKeyWord? = null
@@ -94,6 +96,8 @@ class PlaceMapFragment : Fragment() , OnMapReadyCallback {
                 call: Call<ResultSearchKeyWord>,
                 response: Response<ResultSearchKeyWord>
             ) {
+                // json을 파싱한 결과 받기 - 그 결과를 Fragment들에서 사용하기에 멤버변수로 참조하기
+                searchPlaceResponse=response.body()
 
                 Log.d("PlaceMapFragment", "Raw : ${response.raw()}")
                 Log.d("PlaceMapFragment", "Body : ${response.body()}")
@@ -104,16 +108,25 @@ class PlaceMapFragment : Fragment() , OnMapReadyCallback {
                                 id = document.id,
                                 place_name = document.place_name,
                                 x = document.x, // 경도
-                                y = document.y   // 위도
+                                y = document.y  // 위도
                             )
-
-
 
                     } ?: emptyList()
 
+                    // 리스트에 저장된 장소 정보를 placeList에 추가
+                    placeList.addAll(places)
+
+                    // 장소마다 마커 추가
                     places.forEach { place ->
                         addMarker(place)
                     }
+
+                    // 장소 데이터를 OpenMatFragment로 전달하며 화면 전환
+//                    openPlaceListFragment()
+
+
+                    // placeList의 사이즈 확인 (디버깅용 로그 추가)
+                    Log.d("PlaceMapFragment", "Place list size: ${placeList.size}")
 
                 } else {
                     Log.w("PlaceMapFragment", "검색 결과 실패: ${response.errorBody()}")
@@ -128,6 +141,27 @@ class PlaceMapFragment : Fragment() , OnMapReadyCallback {
 
 
     } // searchQuery
+
+
+//    private fun openPlaceListFragment() {
+//        // OpenMatFragment 생성
+//        val fragment = OpenMatFragment()
+//
+//        // placeList를 Bundle에 담아서 전달
+//        val bundle = Bundle().apply {
+//            putParcelableArrayList("placeList", ArrayList(placeList))
+//        }
+//        fragment.arguments = bundle
+//
+//        // FragmentTransaction을 사용하여 OpenMatFragment로 화면 전환
+//        requireActivity().supportFragmentManager.beginTransaction()
+//            .replace(R.id.fragment_container, fragment)
+//            .addToBackStack(null)
+//            .commit()
+//    }
+
+
+
 
     private fun addMarker(place: Place) {
         val marker = Marker()

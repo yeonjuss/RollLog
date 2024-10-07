@@ -32,6 +32,7 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogListAdapter.VH2 {
+
         val binding =RecyclerItemListLogfragmentBinding.inflate(LayoutInflater.from(context),parent,false)
             return VH2(binding)
     }
@@ -69,7 +70,7 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
         }
 
 
-        // 삭제 버튼 눌렀을때 삭제 확인 다이얼로그 띄우기
+       // 삭제 버튼 눌렀을때 삭제 확인 다이얼로그 띄우기
         holder.binding.ivDelete.setOnClickListener {
             showDeleteConfirmationDialog(log,position)
 

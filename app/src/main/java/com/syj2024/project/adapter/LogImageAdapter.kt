@@ -8,9 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.startActivity
-import androidx.core.content.IntentCompat.getParcelableArrayListExtra
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -61,5 +59,7 @@ class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : 
     }
 
 
-}
+
+
+    }
 

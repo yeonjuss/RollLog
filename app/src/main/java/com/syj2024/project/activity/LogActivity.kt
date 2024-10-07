@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -49,6 +48,7 @@ class LogActivity : AppCompatActivity() {
 //                .map { Uri.parse(it.trim()) }
 //
 //        }
+
         // UI 초기화
         binding.selectedDateTv.text = date ?: selectedDate
         binding.logEt.setText(title)
@@ -117,6 +117,7 @@ class LogActivity : AppCompatActivity() {
             resultLauncher.launch(intent)
 
         }
+
 
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
