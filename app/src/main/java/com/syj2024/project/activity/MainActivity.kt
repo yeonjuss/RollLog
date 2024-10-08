@@ -2,9 +2,14 @@ package com.syj2024.project.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.syj2024.project.Place
+import com.syj2024.project.PlaceViewModel
 import com.syj2024.project.R
+import com.syj2024.project.ResultSearchKeyWord
+import com.syj2024.project.RetrofitService
 import com.syj2024.project.adapter.OpenMatPlaceAdapter
 import com.syj2024.project.databinding.ActivityMainBinding
 import com.syj2024.project.fragment.CalenderFragment
@@ -12,16 +17,32 @@ import com.syj2024.project.fragment.LogListFragment
 import com.syj2024.project.fragment.OpenMatFragment
 import com.syj2024.project.fragment.SiteListFragment
 import com.syj2024.project.fragment.PlaceMapFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
-    // 공유할 데이터를 여기에 저장
-    var placeList: List<Place>? = null
+    private val maxPages = 10 // 최대 10페이지까지만 요청
+    private var currentPage = 1 // 현재 요청 중인 페이지
+
+
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private lateinit var viewModel: PlaceViewModel // ViewModel 초기화
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+
+        // ViewModel 초기화
+        viewModel = ViewModelProvider(this).get(PlaceViewModel::class.java)
+
+        // 앱이 시작되면 데이터를 로드하고 ViewModel에 저장
+        loadPlaceData() // 앱 시작 시 데이터 로드
 
         supportFragmentManager.beginTransaction().add(R.id.fragment_container, CalenderFragment())
             .commit()
@@ -78,12 +99,78 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
     }
 
 
+    // 데이터를 불러오는 메서드
+    private fun loadPlaceData() {
+        searchQuery("주짓수",currentPage)
+        searchQuery("와이어 주짓수",currentPage)
+        searchQuery("존플랭크 주짓수",currentPage)
+        searchQuery("어반 주짓수",currentPage)
+    }
 
+    // Retrofit API를 통해 데이터를 불러오는 메서드
+    private fun searchQuery(keyword: String,page: Int) {
+
+        // 만약 현재 페이지가 최대 페이지를 넘으면 요청을 중단
+        if (page > maxPages) {
+            Log.d("PlaceMapFragment", "최대 페이지인 $maxPages 페이지에 도달했습니다.")
+            return
+        }
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl(PlaceMapFragment.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val api = retrofit.create(RetrofitService::class.java)
+        val call = api.SearchPlace(PlaceMapFragment.API_KEY, keyword, page)
+
+        call.enqueue(object : Callback<ResultSearchKeyWord> {
+            override fun onResponse(call: Call<ResultSearchKeyWord>, response: Response<ResultSearchKeyWord>) {
+                if (response.isSuccessful  && response.body() != null) {
+                    val result = response.body()
+
+                    val places = response.body()?.documents?.map { document ->
+                        Place(
+                            id = document.id,
+                            place_name = document.place_name,
+                            road_address_name = document.road_address_name,
+                            x = document.x,
+                            y = document.y,
+                            place_url = document.place_url
+                        )
+                    } ?: emptyList()
+
+                    // 페이지가 끝났는지 확인
+                    if (result?.meta?.is_end == true) {
+//                        Log.d("PlaceMapFragment", "마지막 페이지에 도달함, 더 이상 데이터가 없습니다.")
+                    } else if (page < maxPages) {
+                        currentPage++ // 다음 페이지로 넘어가기 위해 currentPage 증가
+//                        Log.d("PlaceMapFragment", "Fetching next page: $currentPage")
+                        searchQuery(keyword, currentPage)  // 다음 페이지를 요청
+                    } else {
+                        Log.d("PlaceMapFragment", "최대 페이지에 도달: 더 이상 페이지 요청을 하지 않음")
+                    }
+
+
+                    // ViewModel에 데이터를 저장 (기존 데이터와 합쳐서 추가)
+                    val currentList = viewModel.placeList.value ?: emptyList()
+                    viewModel.setPlaceList(currentList + places)
+
+                }
+            }
+
+            override fun onFailure(call: Call<ResultSearchKeyWord>, t: Throwable) {
+                Log.e("MainActivity", "API 요청 실패: ${t.message}")
+            }
+        })
+    }
 }
+
+
+
 
 
 

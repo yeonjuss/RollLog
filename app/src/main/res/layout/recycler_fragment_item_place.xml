@@ -2,62 +2,79 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="15dp"
-        android:layout_height="40dp"
-        android:background="#AD4545"/>
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv"
+        android:layout_width="330dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="16dp"
+        android:layout_height="60dp">
 
-    <TextView
-        android:id="@+id/tvPlaceName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv"
-        android:layout_marginLeft="16dp"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:text="Place Name" />
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="15dp"
+            android:layout_height="60dp"
+            android:background="#AD4545" />
 
-    <TextView
-        android:id="@+id/tvAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv"
-        android:layout_marginLeft="16dp"
-        android:layout_below="@+id/tvPlaceName"
-        android:textSize="12sp"
-        android:text="Address" />
+        <TextView
+            android:id="@+id/tvPlaceName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="5dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="Place Name" />
 
-    <TextView
-        android:id="@+id/tvUrl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tvPlaceName"
-        android:layout_marginLeft="16dp"
-        android:textSize="12sp"
-        android:text="Url" />
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_below="@+id/tvPlaceName"
+            android:textSize="12sp"
+            android:text="Address" />
 
-    <ImageView
-        android:id="@+id/iv_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_action_next"
-        android:padding="16dp"
-        android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/tvUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvPlaceName"
+            android:layout_marginLeft="110dp"
+            android:textSize="12sp"
+            android:text="Url" />
+
+        <ImageView
+            android:id="@+id/iv_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_next"
+            android:padding="16dp"
+            android:layout_marginLeft="280dp"/>
+
+    </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
 
     <View
         android:id="@+id/view1"
-        android:layout_width="1010px"
-        android:layout_height="5px"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:padding="16dp"
         android:layout_marginTop="8dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/tv"
+        android:layout_below="@+id/layout"
         android:background="#D5D5D5"/>
-
 
 
 </RelativeLayout>
