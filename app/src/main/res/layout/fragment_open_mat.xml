@@ -5,10 +5,22 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:fontFamily="@font/yeongdeok_sea"
+        android:text="오픈매트 및 체육관 정보를 확인해보세요 !"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/placeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:scrollbars="vertical"/>
 
 

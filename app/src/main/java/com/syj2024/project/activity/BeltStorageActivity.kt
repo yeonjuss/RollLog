@@ -18,7 +18,10 @@ import com.syj2024.project.adapter.BeltStorageAdapter
 import com.syj2024.project.databinding.RecyclerItemListBeltstoreBinding
 import com.syj2024.project.databinding.ToolbarBeltBinding
 import com.syj2024.project.fragment.Item2
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 
 class BeltStorageActivity: AppCompatActivity() {
@@ -26,9 +29,12 @@ class BeltStorageActivity: AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var beltAdapter: BeltStorageAdapter
     val beltList: MutableList<BeltStorageItme> = mutableListOf()
-    private lateinit var binding: ToolbarBeltBinding // 적절한 바인딩 이름으로 변경 필요
+    private lateinit var binding: ToolbarBeltBinding
     private var currentGrade = 0 // 초기 그랄 수
     private lateinit var selectedBeltColor: String
+
+    // 벨트 색상별로 currentGrade를 관리하기 위한 맵
+    private val gradeMap = mutableMapOf<String, Int>()
 
     private val beltColors by lazy {
         resources.getStringArray(R.array.belt_colors).toList()
@@ -50,10 +56,15 @@ class BeltStorageActivity: AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.beltColorSpinner.adapter = adapter
 
+
+
+
         // Spinner에서 선택한 벨트 색상에 따른 변경 처리
         binding.beltColorSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedBeltColor = beltColors[position]
+
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -66,15 +77,31 @@ class BeltStorageActivity: AppCompatActivity() {
     }
 
     private fun addBelt() {
-        // 새로운 벨트 추가
-        if (currentGrade < 4) {
-            beltList.add(BeltStorageItme(selectedBeltColor, currentGrade, "date"))
-            beltAdapter.notifyItemInserted(beltList.size - 1)
-        } else {
-            Toast.makeText(this, "최대 4그랄까지 추가 가능합니다.", Toast.LENGTH_SHORT).show()
-        }
+        // 새로운 벨트 추가 시 그 벨트는 0그랄부터 시작
+        val currentGrade = 0
+        gradeMap[selectedBeltColor] = currentGrade
+
+//        // 현재 날짜 설정
+//        val currentDate = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(Date())
+
+        // 새로운 벨트 아이템 생성
+        val newBelt = BeltStorageItme(selectedBeltColor, currentGrade, "date")
+
+        // 벨트 목록에 추가
+        beltList.add(newBelt)
+        beltAdapter.notifyItemInserted(beltList.size - 1) // 어댑터에 새로운 벨트 추가 알림
+
+        // 새로운 벨트의 그랄을 다시 0부터 4까지 추가할 수 있도록 초기화
+        beltAdapter.resetGradesForNewBelt(newBelt)
     }
+
 }
+
+
+
+
+
+
 
 
 

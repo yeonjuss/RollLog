@@ -75,12 +75,12 @@
         android:layout_marginBottom="24dp"
         android:text="event"/>
 
-        <ImageView
-            android:id="@+id/iv_loglistimg"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="20dp"/>
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_loglistimg"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_marginLeft="150dp"-->
+<!--            android:layout_marginTop="20dp"/>-->
 
 </RelativeLayout>
 

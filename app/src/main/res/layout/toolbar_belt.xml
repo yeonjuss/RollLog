@@ -56,6 +56,7 @@
         android:layout_height="wrap_content"
         android:text="색상 선택 후 버튼을 클릭해주세요"
         android:textSize="12sp"
+        android:textStyle="bold"
         android:layout_below="@id/tv_belt2"
         android:layout_marginTop="16dp"
         android:layout_toRightOf="@id/belt_color_spinner"/>

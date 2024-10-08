@@ -16,6 +16,9 @@ import com.syj2024.project.fragment.PlaceMapFragment
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
+    // 공유할 데이터를 여기에 저장
+    var placeList: List<Place>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
