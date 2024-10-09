@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,16 +12,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:textStyle="bold"
-        android:textSize="20sp"
-        android:fontFamily="@font/yeongdeok_sea"
+        android:textSize="15sp"
         android:text="오픈매트 및 체육관 정보를 확인해보세요 !"/>
+    
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/title"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/sports3"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/placeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_below="@+id/title"
         android:scrollbars="vertical"/>
 
 
-</LinearLayout>
+</RelativeLayout>

@@ -53,12 +53,8 @@ class PlaceMapFragment : Fragment(), OnMapReadyCallback {
         return binding.root
     }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        binding = FragmentPlaceMapBinding.bind(view) // 뷰 바인딩 연결
 
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.map_fragment) as MapFragment?
@@ -114,6 +110,7 @@ class PlaceMapFragment : Fragment(), OnMapReadyCallback {
 
 
 
+
     // 마커를 여러 개 추가하는 함수
     private fun addMarkersToMap(places: List<Place>) {
         places.forEach { place ->
@@ -132,8 +129,9 @@ class PlaceMapFragment : Fragment(), OnMapReadyCallback {
 
 
     }
-}
 
+
+}
 
 
 

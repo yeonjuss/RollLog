@@ -17,15 +17,16 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="200dp"
+        android:layout_height="190dp"
         android:src="@drawable/logo3"
+        android:adjustViewBounds="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_name"
-        android:layout_width="250dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         app:boxStrokeColor="@color/black"
@@ -34,13 +35,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="이름"
-            android:textSize="13sp" />
+            android:hint="이름 *"
+            android:textSize="11sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_email"
-        android:layout_width="250dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
@@ -50,13 +51,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:hint="이메일" />
+            android:textSize="11sp"
+            android:hint="이메일 * (ex: abc@naver.com)" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_pass"
-        android:layout_width="250dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
@@ -66,22 +67,74 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:hint="비밀번호" />
+            android:textSize="11sp"
+            android:hint="비밀번호 * (6자리 이상)" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_team"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black"
+        android:layout_below="@+id/input_pass">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="소속팀"
+            android:textSize="11sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/showBottomSheetButton"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:text="벨트 선택"
+        android:layout_below="@+id/input_team"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
+        style="@style/Widget.MaterialComponents.Button"/>
+
+    <ImageView
+        android:id="@+id/selectedBeltImageView"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/showBottomSheetButton"
+        android:layout_marginLeft="95dp"/>
+
+    <TextView
+        android:id="@+id/selectedBeltTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/showBottomSheetButton"
+        android:layout_toRightOf="@id/selectedBeltImageView"
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/inputgrauTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/showBottomSheetButton"
+        android:layout_toRightOf="@id/selectedBeltImageView"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="16dp"/>
 
 
     <Button
         android:id="@+id/btn_sign"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_below="@+id/input_pass"
-        android:layout_marginTop="100dp"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         style="@style/Widget.MaterialComponents.Button"
         android:backgroundTint="#504D4D"
-        android:text="다음"/>
+        android:text="회원가입"/>
 
 
 
