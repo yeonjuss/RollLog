@@ -47,22 +47,11 @@
         android:layout_marginTop="8dp"
         android:maxLength="20"
         android:padding="8dp"
-        android:background="#F6F2F2"
+        android:background="@drawable/bg_box"
+        android:backgroundTint="#F6F2F2"
         android:hint="제목을 입력하세요(20자 이내)"
         android:textSize="12sp" />
 
-    <EditText
-        android:id="@+id/log_et2"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
-        android:padding="8dp"
-        android:hint="내용을 입력하세요(1000자 이내)"
-        android:gravity="start"
-        android:background="#F6F2F2"
-        android:textSize="12sp"
-        android:layout_below="@+id/log_et"/>
 
     <LinearLayout
         android:id="@+id/line1"
@@ -71,145 +60,181 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/bg_box1"
         android:layout_marginTop="8dp"
-        android:layout_below="@+id/log_et2"
+        android:layout_below="@+id/log_et"
         android:orientation="horizontal">
 
-    <TextView
+        <TextView
             android:id="@+id/log_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginLeft="13dp"
             android:hint="오늘 배운 기술의 포지션을 선택해보세요."
-            android:textSize="12sp"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            android:textSize="12sp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/line2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/log_et"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/log_btn1"
+            style="@style/Widget.Material3.Chip.Assist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/log_tv"
+            android:layout_marginTop="45dp"
+            android:text="스탠딩"
+            android:textColor="@color/black"
+            android:layout_marginLeft="20dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:chipBackgroundColor="#E6DCDC" />
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/log_btn2"
+            style="@style/Widget.Material3.Chip.Assist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/log_et2"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/log_btn1"
+            android:text="가드"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:chipBackgroundColor="#E6DCDC" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/log_btn3"
+            style="@style/Widget.Material3.Chip.Assist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/log_et2"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/log_btn2"
+            android:text="백"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:chipBackgroundColor="#E6DCDC" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/log_btn4"
+            style="@style/Widget.Material3.Chip.Assist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/log_et2"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/log_btn3"
+            android:text="가드패스"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:chipBackgroundColor="#E6DCDC" />
 
     </LinearLayout>
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/log_btn1"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/log_et2"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="50dp"
-        app:chipBackgroundColor="#BDB6B6"
-        android:text="스탠딩"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="12sp"/>
+        android:layout_below="@+id/line2"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/log_btn5"
+            style="@style/Widget.Material3.Chip.Assist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/log_btn1"
+            android:layout_marginLeft="18dp"
+            app:chipBackgroundColor="#E6DCDC"
+            android:text="서브미션"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/log_btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="가드"
-        android:textStyle="bold"
-        android:layout_below="@id/log_et2"
-        android:layout_toRightOf="@+id/log_btn1"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="12dp"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        app:chipBackgroundColor="#BDB6B6"
-        android:textSize="12sp"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/log_btn6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="마운트"
+            android:textStyle="bold"
+            android:layout_below="@id/log_btn2"
+            android:layout_toRightOf="@+id/log_btn5"
+            android:layout_marginLeft="5dp"
+            style="@style/Widget.Material3.Chip.Assist"
+            app:chipBackgroundColor="#E6DCDC"
+            android:textSize="12sp"/>
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/log_btn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="백"
-        android:textStyle="bold"
-        android:layout_below="@id/log_et2"
-        android:layout_toRightOf="@+id/log_btn2"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="12dp"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        app:chipBackgroundColor="#BDB6B6"
-        android:textSize="12sp"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/log_btn7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="사이드"
+            android:textStyle="bold"
+            android:layout_below="@id/log_btn4"
+            android:layout_toRightOf="@id/log_btn6"
+            android:layout_marginLeft="5dp"
+            app:chipBackgroundColor="#E6DCDC"
+            style="@style/Widget.Material3.Chip.Assist"
+            android:textSize="12sp"/>
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/log_btn4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="가드패스"
-        android:textStyle="bold"
-        android:layout_toRightOf="@id/log_btn3"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="12dp"
-        android:layout_below="@id/log_et2"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        app:chipBackgroundColor="#BDB6B6"
-        android:textSize="12sp"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/log_btn8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="기타"
+            android:textStyle="bold"
+            android:layout_below="@id/log_btn4"
+            android:layout_toRightOf="@+id/log_btn7"
+            android:layout_marginLeft="5dp"
+            app:chipBackgroundColor="#E6DCDC"
+            style="@style/Widget.Material3.Chip.Assist"
+            android:textSize="12sp"/>
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/log_btn5"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/log_btn1"
-        android:layout_marginLeft="55dp"
-        app:chipBackgroundColor="#BDB6B6"
-        android:text="서브미션"
-        android:textColor="@color/black"
+    </LinearLayout>
+
+
+
+    <EditText
+        android:id="@+id/log_et2"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:padding="8dp"
+        android:hint="내용을 입력하세요(1000자 이내)"
+        android:gravity="start"
+        android:background="@drawable/bg_box"
+        android:backgroundTint="#F6F2F2"
         android:textSize="12sp"
-        android:textStyle="bold" />
-
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/log_btn6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="마운트"
-        android:textStyle="bold"
-        android:layout_below="@id/log_btn2"
-        android:layout_toRightOf="@+id/log_btn5"
-        android:layout_marginLeft="12dp"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        app:chipBackgroundColor="#BDB6B6"
-        android:textSize="12sp"/>
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/log_btn7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="사이드"
-        android:textStyle="bold"
-        android:layout_below="@id/log_btn4"
-        android:layout_toRightOf="@id/log_btn6"
-        android:layout_marginLeft="16dp"
-        app:chipBackgroundColor="#BDB6B6"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        android:textSize="12sp"/>
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/log_btn8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="기타"
-        android:textStyle="bold"
-        android:layout_below="@id/log_btn4"
-        android:layout_toRightOf="@+id/log_btn7"
-        android:layout_marginLeft="12dp"
-        app:chipBackgroundColor="#BDB6B6"
-        style="@style/Widget.MaterialComponents.Chip.Filter"
-        android:textSize="12sp"/>
-
+        android:layout_below="@+id/line1"/>
 
     <ImageView
         android:id="@+id/log_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="270dp"
+        android:layout_below="@+id/line1"
         android:src="@drawable/ic_action_image" />
 
     <ImageView

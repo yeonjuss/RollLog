@@ -58,7 +58,6 @@ class BeltStorageActivity: AppCompatActivity() {
 
 
 
-
         // Spinner에서 선택한 벨트 색상에 따른 변경 처리
         binding.beltColorSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -81,8 +80,6 @@ class BeltStorageActivity: AppCompatActivity() {
         val currentGrade = 0
         gradeMap[selectedBeltColor] = currentGrade
 
-//        // 현재 날짜 설정
-//        val currentDate = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(Date())
 
         // 새로운 벨트 아이템 생성
         val newBelt = BeltStorageItme(selectedBeltColor, currentGrade, "date")
@@ -96,7 +93,6 @@ class BeltStorageActivity: AppCompatActivity() {
     }
 
 }
-
 
 
 

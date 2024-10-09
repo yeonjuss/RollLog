@@ -24,7 +24,6 @@ class LogActivity : AppCompatActivity() {
     private val binding by lazy { ActivityLogBinding.inflate(layoutInflater) }
     private val photoList: MutableList<Uri?> = mutableListOf()
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
-//    val selectedDayList : MutableList<CalendarDay> = mutableListOf()
     private lateinit var adapter: LogImageAdapter
     private val recordedDates = HashSet<CalendarDay>()
 
@@ -112,8 +111,9 @@ class LogActivity : AppCompatActivity() {
 
 
         }
+        // 사진 등록하기
         binding.logPhoto.setOnClickListener {
-            val intent = Intent(MediaStore.ACTION_PICK_IMAGES).putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, 5)
+            val intent = Intent(MediaStore.ACTION_PICK_IMAGES).putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, 3)
             resultLauncher.launch(intent)
 
         }
