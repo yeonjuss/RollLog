@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -24,7 +25,8 @@
         app:mcv_weekDayTextAppearance="@style/CalenderViewWeekCustomText"
         app:mcv_dateTextAppearance="@style/CalenderViewDateCustomText"
         android:padding="16dp"
-        android:background="#FFFFFF"/>
+        android:background="#FFFFFF"
+        tools:ignore="MissingClass" />
     </com.google.android.material.card.MaterialCardView>
 
 
@@ -32,7 +34,7 @@
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F0EFEF"
+        android:background="@drawable/bottom_box3"
         android:layout_below="@+id/cd"
         android:orientation="horizontal">
         <ImageView

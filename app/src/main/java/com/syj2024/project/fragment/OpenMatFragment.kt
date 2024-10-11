@@ -35,6 +35,16 @@ class OpenMatFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        val activity = activity
+        if (activity is MainActivity) {
+            activity.setActionBarTitle("오픈매트")
+        }
+    }
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.syj2024.project.R
 import com.syj2024.project.activity.LogActivity
 import com.syj2024.project.databinding.RecyclerItemListLogfragmentBinding
@@ -46,23 +47,24 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
         val log = logList.get(position)
 
         holder.binding.tvDate.text = log.date
-        holder.binding.tvTitle.text = "Title" + " " + log.title
+        holder.binding.tvTitle.text = log.title
         holder.binding.tvEvent.text = log.event
 
 
-
         // 이미지 설정 (photoList가 비어있지 않고, 첫 번째 이미지가 null이 아닐 경우)
-        if (log.photoList.isNotEmpty() && log.photoList[0] != null && log.photoList[0].toString().isNotEmpty()) {
-//            val firstImageUri = log.photoList[0]
+        if (log.photoList.isNotEmpty() && log.photoList[0] != null ) {
+            val firstImageUri = log.photoList[0]
             // photoList[0]가 콤마로 구분된 URI 문자열일 경우 첫 번째 URI만 분리
-            val firstImageUriString = log.photoList[0].toString().split(",")[0] // 첫 번째 이미지 URI 가져오기
-            val firstImageUri = Uri.parse(firstImageUriString)
+//            val firstImageUriString = log.photoList[0].toString().split(",")[0] // 첫 번째 이미지 URI 가져오기
+//            val firstImageUri = Uri.parse(firstImageUriString)
 
             holder.binding.cv.visibility = View.VISIBLE
-            Glide.with(holder.itemView.context)
+            Glide.with(context)
                   .load(firstImageUri)
-//                  .placeholder(R.drawable.ic_action_image)
-//                .error(R.drawable.ic_action_rc)
+                   .override(140, 200)  // 필요한 크기로 축소
+                  .diskCacheStrategy(DiskCacheStrategy.ALL)  // 디스크 캐시 사용 , 이미지가 너무 클 경우, 캐시를 사용하여 이미지를 불러오는 성능을 개선
+                  .placeholder(R.drawable.ic_action_image)
+                  .error(R.drawable.ic_action_rc)
                   .into(holder.binding.iv)
         } else {
 //            holder.binding.iv.setImageResource(R.drawable.ic_action_image)
@@ -83,16 +85,10 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
                 putExtra("date",log.date)
                 putExtra("title",log.title)
                 putExtra("event",log.event)
-//                putExtra("photo", log.photoList.joinToString(","))
+//              putExtra("photo", log.photoList.joinToString(","))
 
                 // Uri list를 ArrayList로 변환하여 전달
               putParcelableArrayListExtra("photoList", ArrayList(log.photoList.filterNotNull()))
-
-
-
-
-            //    val photoListString = ArrayList(log.photoList.map { it.toString() })
-//              putStringArrayListExtra("photoList", photoListString)
 
 
 
@@ -110,7 +106,7 @@ class LogListAdapter (val context: Context,val logList: MutableList<Item2>) : Ad
             val db: SQLiteDatabase =
                 context.openOrCreateDatabase("data", Context.MODE_PRIVATE, null)
 
-            db.execSQL("DELETE FROM log WHERE title=?", arrayOf(log.title))
+            db.execSQL("DELETE FROM log WHERE id=?", arrayOf(log.id.toString()))
             db.close()
 
             // 리스트에서 아이템 삭제

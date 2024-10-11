@@ -33,12 +33,13 @@
         android:layout_marginTop="8dp"
         android:layout_marginLeft="8dp"
         app:cardCornerRadius="4dp">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
             android:layout_width="140dp"
-            android:layout_height="200dp" />
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
 
     <TextView

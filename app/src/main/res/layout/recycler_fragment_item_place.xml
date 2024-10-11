@@ -4,18 +4,18 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="#EFEFEC"
     android:padding="8dp">
 
     <RelativeLayout
         android:id="@+id/layout"
-        android:background="@color/white"
+        android:background="#EFEFEC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv"
-        android:layout_width="330dp"
+        android:layout_width="390dp"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="16dp"
         android:layout_height="60dp">
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_action_next"
             android:padding="16dp"
-            android:layout_marginLeft="280dp"/>
+            android:layout_marginLeft="300dp"/>
 
     </com.google.android.material.card.MaterialCardView>
     </RelativeLayout>

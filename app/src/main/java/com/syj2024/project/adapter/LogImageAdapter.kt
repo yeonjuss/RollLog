@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,10 +44,13 @@ class LogImageAdapter (val context: Context, val photoList:MutableList<Uri?>) : 
         } else {
             holder.imageView.visibility = View.VISIBLE  // ImageView 보이기
             // Glide로 이미지 로드
-            Glide.with(context)
+            Glide.with(holder.itemView.context)
                 .load(photoUri)
+                .placeholder(R.drawable.ic_action_rc) // 기본 이미지 설정
+                .error(R.drawable.baseline_border_color_24) // 에러 시 이미지
                 .into(holder.imageView)
         }
+
 
 
     }//viewHolder

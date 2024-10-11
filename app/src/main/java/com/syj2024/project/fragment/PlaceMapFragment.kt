@@ -53,12 +53,24 @@ class PlaceMapFragment : Fragment(), OnMapReadyCallback {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        val activity = activity
+        if (activity is MainActivity) {
+            activity.setActionBarTitle("근처체육관")
+        }
+    }
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.map_fragment) as MapFragment?
                 ?: MapFragment.newInstance().also {
+
+
                     childFragmentManager.beginTransaction().add(R.id.map_fragment, it).commit()
                 }
 

@@ -48,7 +48,7 @@
         android:maxLength="20"
         android:padding="8dp"
         android:background="@drawable/bg_box"
-        android:backgroundTint="#F6F2F2"
+        android:backgroundTint="#EDEAEA"
         android:hint="제목을 입력하세요(20자 이내)"
         android:textSize="12sp" />
 
@@ -96,7 +96,7 @@
             android:layout_marginLeft="20dp"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:chipBackgroundColor="#E6DCDC" />
+            app:chipBackgroundColor="#CCC5C5" />
 
 
         <com.google.android.material.chip.Chip
@@ -224,7 +224,7 @@
         android:hint="내용을 입력하세요(1000자 이내)"
         android:gravity="start"
         android:background="@drawable/bg_box"
-        android:backgroundTint="#F6F2F2"
+        android:backgroundTint="#EDEAEA"
         android:textSize="12sp"
         android:layout_below="@+id/line1"/>
 
@@ -237,14 +237,14 @@
         android:layout_below="@+id/line1"
         android:src="@drawable/ic_action_image" />
 
-    <ImageView
+    <TextView
         android:id="@+id/log_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/line1"
         android:layout_marginLeft="300dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/ic_action_check" />
+        android:text="저장" />
 
 
 

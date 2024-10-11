@@ -3,7 +3,10 @@ package com.syj2024.project.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.syj2024.project.Place
 import com.syj2024.project.PlaceViewModel
@@ -12,6 +15,7 @@ import com.syj2024.project.ResultSearchKeyWord
 import com.syj2024.project.RetrofitService
 import com.syj2024.project.adapter.OpenMatPlaceAdapter
 import com.syj2024.project.databinding.ActivityMainBinding
+import com.syj2024.project.databinding.CustomActionbarTitleBinding
 import com.syj2024.project.fragment.CalenderFragment
 import com.syj2024.project.fragment.LogListFragment
 import com.syj2024.project.fragment.OpenMatFragment
@@ -27,15 +31,34 @@ class MainActivity : AppCompatActivity() {
 
     private val maxPages = 10 // 최대 10페이지까지만 요청
     private var currentPage = 1 // 현재 요청 중인 페이지
-
-
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private lateinit var viewModel: PlaceViewModel // ViewModel 초기화
+
+
+    // 커스텀 액션바 레이아웃 바인딩
+    private lateinit var actionBarBinding: CustomActionbarTitleBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+
+//        // 네비게이션 바 색상 변경
+//        window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
+
+
+        // 툴바 설정
+        setSupportActionBar(binding.toolbar)
+
+
+        // 커스텀 타이틀 바인딩 설정
+        actionBarBinding = CustomActionbarTitleBinding.inflate(layoutInflater)
+        supportActionBar?.apply {
+            setDisplayShowTitleEnabled(false) // 기본 타이틀 비활성화
+            customView = actionBarBinding.root // 커스텀 액션바 뷰 설정
+            setDisplayShowCustomEnabled(true) // 커스텀 타이틀 활성화
+        }
 
 
         // ViewModel 초기화
@@ -99,6 +122,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
+    } //onCreate
+
+    // 메뉴 인플레이트 (툴바에 메뉴 표시)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu) // 메뉴 리소스 파일을 툴바에 인플레이트
+        return true
+    }
+
+
+
+    // 액션바 타이틀 설정
+    fun setActionBarTitle(title: String) {
+        actionBarBinding.customTitle.text = title
     }
 
 

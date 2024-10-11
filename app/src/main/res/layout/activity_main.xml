@@ -34,9 +34,10 @@
         app:menu="@menu/bnv"
         app:labelVisibilityMode="labeled"
         android:background="@color/white"
+        app:itemBackground="@android:color/transparent"
+        app:itemRippleColor="@android:color/transparent"
         app:itemIconTint="#575252"
         app:itemTextColor="#908989"
-        app:elevation="16dp"
         android:layout_alignParentBottom="true" />
 
 

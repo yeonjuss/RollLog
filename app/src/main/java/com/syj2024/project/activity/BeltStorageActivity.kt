@@ -1,6 +1,9 @@
 package com.syj2024.project.activity
 
 import android.app.DatePickerDialog
+import android.content.ContentValues
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +29,7 @@ import java.util.Locale
 
 class BeltStorageActivity: AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
+//    private lateinit var recyclerView: RecyclerView
     private lateinit var beltAdapter: BeltStorageAdapter
     val beltList: MutableList<BeltStorageItme> = mutableListOf()
     private lateinit var binding: ToolbarBeltBinding
@@ -64,8 +67,9 @@ class BeltStorageActivity: AppCompatActivity() {
                 selectedBeltColor = beltColors[position]
 
 
-            }
 
+
+        }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
@@ -73,6 +77,10 @@ class BeltStorageActivity: AppCompatActivity() {
         binding.addBeltButton.setOnClickListener {
             addBelt()
         }
+
+
+
+
     }
 
     private fun addBelt() {
@@ -92,7 +100,20 @@ class BeltStorageActivity: AppCompatActivity() {
         beltAdapter.resetGradesForNewBelt(newBelt)
     }
 
-}
+    private fun saveBeltToDatabase(color: String, grade: Int, date: String, imagePath: String) {
+        val db: SQLiteDatabase = openOrCreateDatabase("beltData", Context.MODE_PRIVATE, null)
+        val values = ContentValues().apply {
+            put("color", color)    // 스피너에서 선택한 벨트 색상
+            put("grade", grade)    // 벨트 등급 (예: 0부터 4까지)
+            put("date", date)      // 벨트를 등록한 날짜
+            put("image", imagePath) // 이미지 경로
+        }
+        db.insert("belts", null, values)
+    }
+
+
+
+} //onCreate
 
 
 

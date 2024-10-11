@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.storage.ktx)
     releaseImplementation(libs.material.calendarview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -61,8 +62,7 @@ dependencies {
 
     
 
-    implementation("com.naver.maps:map-sdk:3.19.1") //
-// 네이버 지도 SDK
+    implementation("com.naver.maps:map-sdk:3.19.1") // 네이버 지도 SDK
 
     implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
     // 원하는 제품 라이브러리 추가

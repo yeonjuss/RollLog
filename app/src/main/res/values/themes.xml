@@ -6,7 +6,9 @@
         <item name="background">@color/white</item>
         <item name="android:textSize">12sp</item>
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
     </style>
 
     <style name="CalendarWidgetHeader">

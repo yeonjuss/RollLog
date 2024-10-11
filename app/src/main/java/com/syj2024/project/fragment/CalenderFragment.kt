@@ -21,6 +21,7 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.syj2024.project.R
 import com.syj2024.project.activity.LogActivity
+import com.syj2024.project.activity.MainActivity
 import com.syj2024.project.databinding.FragmentCalenderBinding
 import com.syj2024.project.decorate.EventDecorator
 import com.syj2024.project.decorate.SundayDecorator
@@ -46,6 +47,19 @@ class CalenderFragment : Fragment() {
         binding = FragmentCalenderBinding.inflate(inflater,container,false)
         return binding.root
     }
+
+
+    override fun onResume() {
+        super.onResume()
+        val activity = activity
+        if (activity is MainActivity) {
+            activity.setActionBarTitle("캘린더")
+        }
+    }
+
+
+
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
