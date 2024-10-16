@@ -44,10 +44,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-//        // 네비게이션 바 색상 변경
-//        window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
-
-
         // 툴바 설정
         setSupportActionBar(binding.toolbar)
 
