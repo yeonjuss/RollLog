@@ -6,13 +6,13 @@
 
     <!-- 벨트 색상 선택 Spinner -->
     <!-- 벨트 이미지 -->
-<!--    <Spinner-->
-<!--        android:id="@+id/belt_color_spinner"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="23dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:entries="@array/belt_colors" />-->
+    <!--    <Spinner-->
+    <!--        android:id="@+id/belt_color_spinner"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="23dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:entries="@array/belt_colors" />-->
 
     <ImageView
         android:id="@+id/belt_image"
@@ -21,42 +21,42 @@
         android:src="@drawable/blue"
         android:layout_height="50dp"/>
 
-    <TextView
-        android:id="@+id/tv_grau"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/belt_image"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="20dp"
-        android:text="0 grau"
-        android:textColor="#8A8888" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_grau"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/belt_image"-->
+    <!--        android:layout_marginTop="2dp"-->
+    <!--        android:layout_marginLeft="20dp"-->
+    <!--        android:text="0 grau"-->
+    <!--        android:textColor="#8A8888" />-->
 
-    <TextView
-        android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/belt_image"
-        android:text="date"
-        android:layout_toRightOf="@+id/tv_grau"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="2dp"/>
-    <ImageView
-        android:id="@+id/iv_grau_calender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_action_calender2"
-        android:layout_toRightOf="@id/tv_date"
-        android:layout_below="@id/belt_image"
-        android:layout_marginLeft="30dp"/>
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_date"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/belt_image"-->
+    <!--        android:text="date"-->
+    <!--        android:layout_toRightOf="@+id/tv_grau"-->
+    <!--        android:layout_marginLeft="30dp"-->
+    <!--        android:layout_marginTop="2dp"/>-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/iv_grau_calender"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:src="@drawable/ic_action_calender2"-->
+    <!--        android:layout_toRightOf="@id/tv_date"-->
+    <!--        android:layout_below="@id/belt_image"-->
+    <!--        android:layout_marginLeft="30dp"/>-->
 
     <!-- 그랄 추가된 레이아웃을 담을 부모 LinearLayout -->
     <LinearLayout
         android:id="@+id/grades_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/tv_grau"
-        android:layout_marginTop="5dp"/>
+        android:layout_below="@+id/belt_image"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical" />
 
 
 

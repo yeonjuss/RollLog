@@ -122,6 +122,8 @@ class CalenderFragment : Fragment() {
     fun getEventDaysFromDatabase(): List<CalendarDay> {
         // SQLite 데이터베이스 열기 (혹은 생성)
         val db: SQLiteDatabase = requireContext().openOrCreateDatabase("data", Context.MODE_PRIVATE, null)
+        db.execSQL("CREATE TABLE IF NOT EXISTS log(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, title TEXT(80), event TEXT(1000), photo TEXT)")
+
 
         // log 테이블에서 date 데이터를 가져오는 쿼리 실행
         val cursor = db.rawQuery("SELECT date FROM log", null)

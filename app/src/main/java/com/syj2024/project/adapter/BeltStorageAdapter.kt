@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.compose.ui.window.application
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.google.firebase.auth.FirebaseAuth
@@ -17,84 +18,84 @@ import com.syj2024.project.R
 import com.syj2024.project.activity.BeltStorageItme
 
 import com.syj2024.project.databinding.RecyclerItemListBeltstoreBinding
+
 import java.util.Calendar
 
 
-class BeltStorageAdapter(val beltList: MutableList<BeltStorageItme>, val context: Context) :
+class BeltStorageAdapter(val beltList: MutableList<BeltStorageItme>,
+                         val context: Context,
+                         val db: FirebaseFirestore,
+                         val userId: String) :
     RecyclerView.Adapter<BeltStorageAdapter.ViewHolder>() {
 
     inner class ViewHolder(var binding: RecyclerItemListBeltstoreBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        // 그랄 레이아웃 추가 함수
-        fun addGradeLayout(grade: Int) {
-            // 새로운 레이아웃 생성
-            val gradeLayout = LayoutInflater.from(context).inflate(R.layout.grade_item, null)
+        fun bind(belt: BeltStorageItme) {
+            binding.beltImage.setImageResource(getBeltImageResource(belt.color))
+            if (binding.gradesContainer.childCount > 0) {
+                binding.gradesContainer.removeAllViews() // 중복 방지: 이미 추가된 뷰는 모두 제거
+            }
 
-            // 각 뷰에 데이터 설정
+            // 각 그랄별로 날짜 설정
+            for (grade in 0..4) {
+                val savedDate = belt.dates.getOrNull(grade) ?: ""
+                addGradeLayout(grade, savedDate, belt)
+            }
+
+//            resetGradesForNewBelt(belt)
+        }
+
+
+        // 각 그랄의 레이아웃 추가 함수
+        fun addGradeLayout(grade: Int, savedDate: String, belt: BeltStorageItme) {
+            val gradeLayout = LayoutInflater.from(context).inflate(R.layout.grade_item, null)
             val tvGrau = gradeLayout.findViewById<TextView>(R.id.tv_grau)
             val tvDate = gradeLayout.findViewById<TextView>(R.id.tv_date)
             val ivGrauCalendar = gradeLayout.findViewById<ImageView>(R.id.iv_grau_calender)
 
-            // 그랄 수와 날짜 설정
             tvGrau.text = "$grade grau"
-            tvDate.text = "date"
+            tvDate.text = if (savedDate.isNotEmpty()) savedDate else "date"
 
-            // 부모 LinearLayout에 추가
             binding.gradesContainer.addView(gradeLayout)
 
-            // 새로 추가된 레이아웃의 DatePicker 기능 설정
+            // DatePickerDialog 연결
             ivGrauCalendar.setOnClickListener {
-                showDatePickerDialog(tvDate)
+                showDatePickerDialog(tvDate) { selectedDate ->
+                    tvDate.text = selectedDate
+                    belt.dates[grade] = selectedDate // 선택된 날짜 그랄에 저장
+                }
             }
-        }
-
-
-
-        // 각 벨트가 추가될 때 그랄을 0부터 시작하여 4까지 채움
-        fun resetGradesForNewBelt(belt: BeltStorageItme) {
-            binding.gradesContainer.removeAllViews() // 이전 그랄 레이아웃 초기화
-            for (grade in 1..4) { // 0그랄부터 4그랄까지 추가
-                addGradeLayout(grade)
-            }
-        }
-
-        // 각 뷰홀더에 대해 그랄 수 초기화 및 바인딩
-        fun bind(belt: BeltStorageItme) {
-            binding.tvGrau.text = "${belt.grau} grau"
-            binding.tvDate.text = belt.date
-            binding.beltImage.setImageResource(getBeltImageResource(belt.color))
-            resetGradesForNewBelt(belt) // 벨트를 추가할 때 그랄 초기화
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeltStorageAdapter.ViewHolder {
-        val binding = RecyclerItemListBeltstoreBinding.inflate(LayoutInflater.from(context), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding =
+            RecyclerItemListBeltstoreBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int {
-        return beltList.size
+    override fun getItemCount(): Int = beltList.size
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(beltList[position])
     }
 
-    override fun onBindViewHolder(holder: BeltStorageAdapter.ViewHolder, position: Int) {
-        val belt = beltList[position]
-        holder.bind(belt) // 그랄과 벨트 정보를 뷰홀더에 바인딩
-
-        // 날짜 클릭 리스너 추가
-        holder.binding.ivGrauCalender.setOnClickListener {
-            showDatePickerDialog(holder.binding.tvDate)
-            // DatePickerDialog 코드
-        }
-
-
-    }
-
-    // 새로운 벨트가 추가되면 그랄을 0부터 다시 채울 수 있도록 처리
-    fun resetGradesForNewBelt(newBelt: BeltStorageItme) {
-        val position = beltList.indexOf(newBelt)
-        if (position != -1) {
-            notifyItemChanged(position)
+    fun saveAllBeltsToFirestore() {
+        for (belt in beltList) {
+            val beltData = hashMapOf(
+                "beltName" to belt.color,
+                "promotionDate" to belt.dates
+            )
+            db.collection("users").document(userId).collection("belts")
+                .document(belt.color) // 문서 ID를 띠 색깔로 사용
+                .set(beltData) // set을 사용하여 기존 문서를 덮어씌움
+                .addOnSuccessListener {
+                    Toast.makeText(context, "벨트 정보 저장 완료", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(context, "저장 실패: $e", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 
@@ -109,9 +110,7 @@ class BeltStorageAdapter(val beltList: MutableList<BeltStorageItme>, val context
         }
     }
 
-
-    // DatePickerDialog 호출 함수
-    private fun showDatePickerDialog(tvDate: TextView) {
+    private fun showDatePickerDialog(tvDate: TextView, onDateSelected: (String) -> Unit) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
@@ -121,7 +120,7 @@ class BeltStorageAdapter(val beltList: MutableList<BeltStorageItme>, val context
             context,
             { _, selectedYear, selectedMonth, selectedDay ->
                 val selectedDate = "$selectedYear/${selectedMonth + 1}/$selectedDay"
-                tvDate.text = selectedDate
+                onDateSelected(selectedDate) // 선택된 날짜 전달
             },
             year, month, day
         )

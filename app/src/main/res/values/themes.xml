@@ -39,6 +39,12 @@
     </style>
 
 
+    <style name="CustomOverflowMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:popupBackground">@color/white</item>  <!-- 메뉴 배경 색상 -->
+        <item name="android:textColor">@color/black</item>  <!-- 메뉴 텍스트 색상 -->
+    </style>
+
+
 
     <style name="log">
         <item name="android:fontFamily">@font/yeongdeok_sea</item>

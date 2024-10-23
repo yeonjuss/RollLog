@@ -58,6 +58,7 @@ class LogActivity : AppCompatActivity() {
         binding.selectedDateTv.text = date ?: selectedDate
         binding.logEt.setText(title)
         binding.logEt2.setText(event)
+        
 
         // 받은 photoList가 비어있지 않으면 photoList에 추가
         if (!receivedPhotoList.isNullOrEmpty()) {
@@ -79,6 +80,7 @@ class LogActivity : AppCompatActivity() {
         // sqlite 데이터베이스 생성
         val db: SQLiteDatabase = openOrCreateDatabase("data", MODE_PRIVATE, null)
         db.execSQL("CREATE TABLE IF NOT EXISTS log(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT, title TEXT(80), event TEXT(1000), photo TEXT)")
+
 
 
         binding.logSubmit.setOnClickListener {

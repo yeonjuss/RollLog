@@ -8,6 +8,7 @@ import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.syj2024.project.Place
 import com.syj2024.project.PlaceViewModel
 import com.syj2024.project.R
@@ -44,8 +45,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-//        // 네비게이션 바 색상 변경
-//        window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
 
 
         // 툴바 설정
