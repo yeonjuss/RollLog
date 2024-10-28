@@ -3,18 +3,17 @@ package com.syj2024.project.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.Menu
-import android.widget.Toolbar
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.syj2024.project.Place
 import com.syj2024.project.PlaceViewModel
 import com.syj2024.project.R
 import com.syj2024.project.ResultSearchKeyWord
 import com.syj2024.project.RetrofitService
-import com.syj2024.project.adapter.OpenMatPlaceAdapter
 import com.syj2024.project.databinding.ActivityMainBinding
 import com.syj2024.project.databinding.CustomActionbarTitleBinding
 import com.syj2024.project.fragment.CalenderFragment
@@ -42,9 +41,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(binding.root)
-
-
 
 
         // 툴바 설정
@@ -104,8 +102,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        binding.toolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
+
+
+
+        binding.toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
                 R.id.mypage -> {
                     startActivity(Intent(this, MyPageActivity::class.java))
                     true
@@ -126,7 +127,7 @@ class MainActivity : AppCompatActivity() {
 
     // 메뉴 인플레이트 (툴바에 메뉴 표시)
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu) // 메뉴 리소스 파일을 툴바에 인플레이트
+        menuInflater.inflate(R.menu.toolbar_menu, menu)  // 메뉴 리소스 파일을 툴바에 인플레이트
         return true
     }
 
@@ -203,7 +204,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
+
 }
+
 
 
 
