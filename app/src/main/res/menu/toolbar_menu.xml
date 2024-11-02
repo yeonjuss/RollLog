@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/mypage" android:icon="@drawable/ic_action_profile2"  android:title="마이페이지" app:showAsAction="ifRoom"/>
+    <item android:id="@+id/belt"  android:icon="@drawable/baseline_storage_24"  android:title="벨트 보관함" app:showAsAction="ifRoom" />
+
+</menu>
